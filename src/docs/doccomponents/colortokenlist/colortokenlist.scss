@@ -1,0 +1,18 @@
+.color-tokens-wrapper {
+    margin: 1rem 0;
+}
+
+.color-token-sample {
+    align-self: flex-start;
+    border: 1px solid var(--desaturated-300);
+    border-radius: var(--radius-sm);
+    height: 2rem;
+    margin-top: var(--space-xxs) !important;
+    width: 2rem;
+}
+
+.color-token-variable {
+    background-color: var(--data-background-enabled-weak);
+    border-radius: var(--radius-xs);
+    padding: var(--space-xxs) var(--space-xs);
+}

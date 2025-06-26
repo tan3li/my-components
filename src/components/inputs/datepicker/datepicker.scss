@@ -1,0 +1,126 @@
+@use '../../../styles/mixins.scss';
+
+.datepicker {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    width: 100%;
+}
+
+.datepicker__controls {
+    align-items: center;
+    background-color: var(--input-background-enabled);
+    border: var(--stroke-xxs) solid var(--input-border-enabled-strong);
+    border-radius: var(--radius-xs);
+    display: flex;
+    gap: var(--space-xxs);
+    position: relative;
+}
+
+.datepicker__controls--md {
+    height: 40px;
+    padding: var(--space-xs) var(--space-sm);
+}
+
+.datepicker__controls--sm {
+    height: 32px;
+    padding: var(--space-xxs) var(--space-sm);
+}
+
+.datepicker__controls--xs {
+    height: 28px;
+    padding: var(--space-xxs) var(--space-xs);
+
+    .datepicker__buttons {
+        gap: var(--space-xs);
+    }
+
+    .datepicker__button > .icon,
+    .datepicker__clear-button > .icon {
+        height: 18px;
+        width: 18px;
+    }
+}
+
+.datepicker__input {
+    align-items: center;
+    display: flex;
+    flex: 1 1 auto;
+    white-space: nowrap;
+}
+
+.datepicker__buttons {
+    align-items: center;
+    display: flex;
+    gap: var(--space-xxs);
+}
+
+.datepicker__button {
+    align-items: center;
+    background: none;
+    border: none;
+    border-radius: var(--radius-lg);
+    color: var(--input-icon-enabled);
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    outline: none;
+    padding: 0;
+    position: relative;
+
+    &[data-disabled] {
+        color: var(--input-icon-disabled-weak);
+        cursor: default;
+    }
+
+    &[data-focus-visible] {
+        @include mixins.focus-ring(3px, 2px, var(--radius-lg));
+    }
+}
+
+.datepicker__segment {
+    caret-color: transparent;
+    color: var(--input-text-enabled-strong);
+    outline: none;
+}
+
+.datepicker__segment[data-placeholder] {
+    color: var(--input-text-enabled-weak);
+}
+
+.datepicker__segment[data-focused] {
+    background: var(--input-background-selected-enabled-weak);
+    color: var(--input-text-enabled-strong-inverted);
+}
+
+.datepicker__dialog {
+    background: var(--input-background-enabled);
+    border: var(--stroke-xxs) solid var(--input-border-enabled-strong);
+    border-radius: var(--radius-xs);
+    box-shadow: var(--elevation-lg);
+    padding: var(--space-xxs) 0;
+}
+
+.datepicker__controls[data-hovered] {
+    border-color: var(--input-border-hover);
+}
+
+.datepicker__controls[data-focus-within] {
+    border-color: var(--input-border-active);
+
+    @include mixins.focus-ring(3px, 3px, var(--radius-xs));
+}
+
+.datepicker__controls[data-invalid] {
+    border-color: var(--input-border-error);
+}
+
+.datepicker__controls[data-disabled],
+.datepicker__controls[data-disabled][data-hovered] {
+    background-color: var(--input-background-disabled-weak);
+    border-color: var(--input-border-disabled);
+
+    .datepicker__segment {
+        color: var(--input-text-disabled);
+    }
+}

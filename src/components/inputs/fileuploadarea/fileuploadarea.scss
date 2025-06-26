@@ -1,0 +1,76 @@
+@use '../../../styles/mixins.scss';
+
+.file-upload-area {
+    align-items: center;
+    background: var(--input-background-action-enabled);
+    border: var(--stroke-xxs) dashed var(--input-border-enabled-strong);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--feedback-border-alert-modal);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--space-xl);
+    position: relative;
+}
+
+.file-upload-area__help-text {
+    margin-top: var(--space-xs);
+}
+
+.file-upload-area__inner {
+    align-items: flex-start;
+    display: flex;
+    gap: var(--space-sm);
+    justify-content: center;
+}
+
+.file-upload-area__icon {
+    color: var(--input-icon-enabled);
+}
+
+.file-upload-area__content {
+    align-items: flex-start;
+    display: flex;
+    flex: 1 0 0;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.file-upload-area__texts {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3xs);
+}
+
+.file-upload-area__main-text {
+    color: var(--input-text-enabled-strong);
+}
+
+.file-upload-area__description-text {
+    color: var(--input-text-enabled-weak);
+}
+
+.file-upload-area[data-hovered],
+.file-upload-area[data-drop-target] {
+    background: var(--input-background-action-hover);
+    border-color: var(--input-border-active);
+}
+
+.file-upload-area[data-focus-visible] {
+    @include mixins.focus-ring(3px, 3px, var(--radius-lg));
+}
+
+.file-upload-area[data-disabled] {
+    background: var(--input-background-disabled-weak);
+    border-color: var(--input-border-disabled);
+
+    .file-upload-area__icon {
+        color: var(--input-icon-disabled-weak);
+    }
+
+    .file-upload-area__main-text,
+    .file-upload-area__description-text {
+        color: var(--input-text-disabled);
+    }
+}

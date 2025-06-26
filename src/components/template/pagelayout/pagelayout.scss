@@ -1,0 +1,16 @@
+@use '../../../styles/variables.scss';
+
+.page-layout {
+    display: flex;
+    flex-direction: column;
+    padding: 0 var(--space-xs);
+    width: 100%;
+
+    @media (min-width: variables.$breakpoint-md) {
+        padding: 0 var(--space-lg);
+    }
+
+    @media (min-width: variables.$breakpoint-lg) {
+        padding: 0 2%;
+    }
+}

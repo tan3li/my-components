@@ -1,0 +1,60 @@
+import {FlexLayout} from '../../../docs/doccomponents/flexlayout/flexlayout.js';
+import {Donts, Dos} from '../../../docs/doccomponents/guidelines/guidebox.js';
+
+### Usage
+
+> Skeleton states are wireframe-like versions of components used on an **initial page load** to indicate that the information on the page has not fully loaded yet. They should only appear for only a few seconds, disappearing once components and content populate the page. They help to decrease perceived wait times.
+
+#### Anatomy
+
+A skeleton component is made of a container and a color fill that pulsates at an interval. Both are required to complete a skeleton.
+
+<img src="/images/skeleton/SkeletonAnatomy.jpg" alt="Skeleton Anatomy" />
+
+#### When to use
+
+| Where      | When                                                      |
+| :--------- | :-------------------------------------------------------- |
+| Product UI | when content is being loaded for the first time to the UI |
+| Component  | when you know the amount of items to load                 |
+| Data Table | when extra load time is expected                          |
+
+#### Behavior
+
+<img src="/images/skeleton/SkeletonBehaviorSuccess.jpg" alt="Successfull loading after Skeleton" />
+Skeletons appear on the screen before content loads for the first time, briefly shimmer to indicate activity, and then
+disappear once content is available.
+
+<img src="/images/skeleton/SkeletonBehaviorFailure.jpg" alt="Failure in loading after Skeleton" />
+If content fails to load, an error message appears. The component used for the error message can vary depending on the
+context.
+
+#### Build options
+
+<img src="/images/skeleton/SkeletonBuiltIn.jpg" alt="Example of Skeleton built in" />
+All relevant components from Sera DS will gradually include a Skeleton mode.
+
+<img src="/images/skeleton/SkeletonCustom.jpg" alt="Example of Skeleton custom by design system adopters" />
+Create your own Skeleton to fit your need. This is particularly useful when you've developed custom components. Just
+make sure that the animation among Skeleton elements synchronize.
+
+#### Guides
+
+- In most cases, action components i.e buttons do not need to have a skeleton state.
+- Never represent toast notifications, overflow menus, dropdown items, modals, and loaders with skeleton states. Elements inside a modal may have a skeleton state, but the modal itself should not.
+
+<FlexLayout direction="row">
+    <FlexLayout direction="column" gap={0}>
+        <img src="/images/skeleton/Skeleton-Do.jpg" alt="Dos for Skeleton" />
+        <Dos>Show a vague presentation of the UI</Dos>
+    </FlexLayout>
+    <FlexLayout direction="column" gap={0}>
+        <img src="/images/skeleton/Skeleton-Dont.jpg" alt="Donts for Skeleton" />
+        <Donts>Show action element, & UI element exactly during loading state</Donts>
+    </FlexLayout>
+</FlexLayout>
+
+#### Related links
+
+- [Skeleton Screens 101 by NNgroup](https://www.nngroup.com/articles/skeleton-screens/)
+- to Loading pattern

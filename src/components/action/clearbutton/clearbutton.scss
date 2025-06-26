@@ -1,0 +1,22 @@
+@use '../../../styles/mixins.scss';
+
+.clear-button {
+    background: transparent;
+    border: none;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    display: flex;
+    outline: none;
+    padding: 0;
+    position: relative;
+
+    &[data-focused] {
+        @include mixins.focus-ring(2px, 0, var(--radius-full));
+    }
+}
+
+.clear-button__icon {
+    color: var(--input-icon-enabled);
+    height: var(--space-lg);
+    width: var(--space-lg);
+}

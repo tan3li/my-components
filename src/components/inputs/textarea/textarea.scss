@@ -1,0 +1,90 @@
+.textarea-field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.textarea-field__letter-count {
+    color: var(--input-text-enabled-weak);
+    margin-left: auto;
+}
+
+.textarea-field__textarea {
+    background: var(--input-background-enabled);
+    border: none;
+    border-radius: var(--radius-sm);
+    color: var(--input-text-enabled-strong);
+    display: flex;
+    min-height: 134px; // show 5 rows by default
+    min-width: 225px; // needs to be set for autogrow to work correctly
+    padding: var(--space-xs) var(--space-sm);
+    resize: vertical;
+    width: 100%;
+
+    &::placeholder {
+        color: var(--input-text-enabled-weak);
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.textarea-field__textarea-wrap {
+    border-radius: var(--radius-sm);
+    overflow: hidden; // prevent scrollbar from overflowing the box as it does not have radius
+}
+
+.textarea-field__content {
+    border: 1px solid var(--input-border-enabled-strong);
+    border-radius: var(--radius-sm);
+    position: relative;
+}
+
+/* HOVER STATE */
+.textarea-field__content[data-hovered] {
+    border-color: var(--input-border-hover);
+}
+
+/* FOCUSED STATE */
+.textarea-field__content[data-focused] {
+    border-color: var(--input-border-active);
+
+    &:before {
+        border-radius: var(--radius-xs);
+        content: '';
+        height: 100%;
+        left: 0;
+        opacity: 0.5;
+        outline: 3px solid var(--informative-border-focus-ring);
+        outline-offset: 2px;
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+}
+
+/* READONLY STATE */
+.textarea-field__content[data-readonly] {
+    border-color: var(--input-border-enabled-strong);
+}
+
+/* ERROR STATE */
+.textarea-field__content[data-invalid] {
+    border-color: var(--input-border-error);
+}
+
+/* DISABLED STATE */
+.textarea-field__content[data-disabled],
+.textarea-field__content[data-disabled][data-hovered],
+.textarea-field__content[data-disabled][data-focused],
+.textarea-field__content[data-disabled][data-invalid] {
+    background-color: var(--input-background-disabled-weak);
+    border-color: var(--input-border-disabled);
+
+    .textarea-field__textarea {
+        background-color: var(--input-background-disabled-weak);
+        color: var(--input-text-disabled);
+    }
+}

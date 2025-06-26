@@ -1,0 +1,100 @@
+@use '../../../styles/mixins.scss';
+
+.tag {
+    align-items: center;
+    border-radius: var(--radius-xs);
+    cursor: default;
+    display: inline-flex;
+    justify-content: center;
+    max-width: 100%;
+    min-width: 50px;
+}
+
+.tag__content {
+    align-items: center;
+    display: flex;
+    gap: var(--space-3xs);
+    min-width: 0;
+    position: relative;
+}
+
+.tag__remove-button {
+    min-height: auto;
+}
+
+.tag--xs {
+    .tag__content {
+        min-height: 20px;
+        padding: var(--space-3xs) var(--space-xxs);
+    }
+
+    .tag__remove-button {
+        padding: var(--space-3xs);
+    }
+}
+
+.tag--sm {
+    .tag__content {
+        min-height: 24px;
+        padding: var(--space-3xs) var(--space-xxs);
+    }
+}
+
+.tag--md {
+    .tag__content {
+        min-height: 28px;
+        padding: var(--space-xxs) var(--space-xs);
+    }
+}
+
+.tag__icon {
+    color: var(--nav-icon-enabled-weak);
+}
+
+.tag__label {
+    color: var(--nav-text-enabled-strong);
+    display: block;
+    max-width: 160px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.outline-tag {
+    background-color: var(--nav-background-enabled-weak);
+    border: 1px solid var(--nav-border-enabled-weak);
+}
+
+.fill-tag {
+    background-color: var(--nav-background-enabled-strong);
+}
+
+.tag--pressable {
+    cursor: pointer;
+}
+
+.tag--interactive {
+    &:hover {
+        background-color: var(--nav-background-hover-strong);
+    }
+
+    .tag__content:focus-visible {
+        z-index: 1;
+
+        @include mixins.focus-ring(2px, 2px, var(--radius-xs));
+    }
+}
+
+.tag--disabled,
+.tag--disabled:hover {
+    background-color: var(--nav-background-disabled-weak);
+    border-color: var(--nav-border-disabled);
+
+    .tag__icon {
+        color: var(--nav-icon-disabled);
+    }
+
+    .tag__label {
+        color: var(--nav-text-disabled);
+    }
+}

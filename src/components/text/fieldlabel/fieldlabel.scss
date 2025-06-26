@@ -1,0 +1,15 @@
+.field-label {
+    align-items: center;
+    color: var(--input-text-enabled-strong);
+    display: flex;
+    gap: var(--space-xxs);
+    position: relative;
+}
+
+.field-label__icon {
+    color: var(--input-icon-enabled);
+}
+
+.field-label--disabled {
+    color: var(--input-text-disabled);
+}

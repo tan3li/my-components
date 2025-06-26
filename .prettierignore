@@ -1,0 +1,6 @@
+# Ignore all HTML and JSON files:
+**/*.html
+**/*.json
+
+# Ignore GitHub actions
+**/.github

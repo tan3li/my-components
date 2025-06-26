@@ -1,0 +1,67 @@
+import {FlexLayout} from '../../../docs/doccomponents/flexlayout/flexlayout.js';
+import {Donts, Dos} from '../../../docs/doccomponents/guidelines/guidebox.js';
+
+### Usage
+
+> **Badges vs Tags**: Badges and [Tags](https://storybook.severa.com/?path=/docs/components-navigation-tag--docs) are visually similar, but tags are interactive and **badges are not**.
+
+<img src="/images/badge/TagvsBadge.jpg" alt="table comparing Tags and Badges" />
+
+<table width="100%">
+    <thead>
+        <tr>
+            <th>Feature</th>
+            <th>Tag</th>
+            <th>Badge</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>html tag</td>
+            <td>Usually span or div</td>
+            <td>Usually span or div</td>
+        </tr>
+        <tr>
+            <td>Is interactive</td>
+            <td>Yes</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>Purpose</td>
+            <td>Allow user to group, sort, filter information</td>
+            <td>Indicate a readonly status or count</td>
+        </tr>
+        <tr>
+            <td>Has color variant</td>
+            <td>No: only neutral</td>
+            <td>Yes: neutral, success,danger, warning, informative</td>
+        </tr>
+        <tr>
+            <td>Available styles</td>
+            <td>Filled, Outlined</td>
+            <td>Filled, Outlined, Plain</td>
+        </tr>
+        <tr>
+            <td>Token group</td>
+            <td>Navigation</td>
+            <td>Feedback</td>
+        </tr>
+    </tbody>
+</table>
+
+<FlexLayout direction="row">
+    <FlexLayout direction="column" gap={0}>
+        <img src="images/badge/Badge-Do.jpg" alt="Dos for Badge" />
+        <Dos>
+            Make sure the label effectively communicates its purpose. It is the primary way to share crucial
+            information. The icon, as a decorative element, enhances the understanding of the message.
+        </Dos>
+    </FlexLayout>
+    <FlexLayout direction="column" gap={0}>
+        <img src="/images/badge/Badge-Dont.jpg" alt="table comparing Tags and Badges" />
+        <Donts>
+            Avoid using the badge without a label. Icons can confuse users as they lack clear information. Also, the
+            badge isn't interactive, so no helpful text appears on hover.
+        </Donts>
+    </FlexLayout>
+</FlexLayout>

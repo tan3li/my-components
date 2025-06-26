@@ -1,0 +1,142 @@
+@use '../../../styles/variables.scss';
+
+$alert-modal-overlay-offset: 60px;
+
+@keyframes modal-fade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes modal-zoom {
+    from {
+        transform: scale(0.8);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+.alert-modal-overlay {
+    align-items: center;
+    background: color-mix(in srgb, var(--toned-gray-900) 50%, transparent);
+    display: flex;
+    height: var(--visual-viewport-height); // from React Aria
+    justify-content: center;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: variables.$modal-z-index;
+
+    &[data-entering] {
+        animation: modal-fade 200ms;
+    }
+
+    &[data-exiting] {
+        animation: modal-fade 150ms reverse ease-in;
+    }
+}
+
+.alert-modal-wrapper {
+    margin: auto 0;
+}
+
+.alert-modal {
+    background: var(--feedback-background-enabled-weak);
+    border: 1px solid var(--feedback-border-enabled-weak);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--feedback-border-alert-modal);
+    margin: $alert-modal-overlay-offset 0;
+    max-width: 100vw;
+
+    &[data-entering] {
+        animation: modal-zoom 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+}
+
+.alert-modal--sm {
+    width: 400px;
+}
+
+.alert-modal--md {
+    width: 600px;
+}
+
+.alert-modal--lg {
+    width: 752px;
+}
+
+.alert-modal--xl {
+    width: 968px;
+}
+
+.alert-modal--xxl {
+    width: 90vw;
+
+    .alert-modal-dialog {
+        min-height: 350px;
+    }
+
+    .alert-modal-dialog__body {
+        flex: 1;
+    }
+}
+
+.alert-modal-dialog__header {
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.alert-modal-dialog__body {
+    outline: none;
+    overflow-y: auto;
+    padding: var(--space-sm) var(--space-xl);
+    white-space: pre-wrap;
+}
+
+.alert-modal-dialog__body--no-footer {
+    padding-bottom: var(--space-xl);
+}
+
+.alert-modal-dialog__footer {
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+}
+
+.alert-modal-dialog {
+    display: flex;
+    flex-direction: column;
+    max-height: calc(100vh - 2 * $alert-modal-overlay-offset);
+    outline: none;
+    overflow: hidden;
+}
+
+.alert-modal-overlay--scrollable {
+    overflow-y: auto;
+
+    .alert-modal-dialog {
+        max-height: none;
+    }
+}
+
+.alert-modal-dialog--scroll-top,
+.alert-modal-dialog--scroll-middle {
+    > .alert-modal-dialog__footer {
+        border-top: 1px solid var(--feedback-border-enabled-weak);
+        box-shadow: 0 0 4px 0 rgb(0 0 0 / 0.2);
+        z-index: 1; // fix for box-shadow scroll bug on Chrome
+    }
+}
+
+.alert-modal-dialog--scroll-bottom,
+.alert-modal-dialog--scroll-middle {
+    > .alert-modal-dialog__header {
+        border-bottom: 1px solid var(--feedback-border-enabled-weak);
+        box-shadow: 0 0 4px 0 rgb(0 0 0 / 0.2);
+        z-index: 1;
+    }
+}

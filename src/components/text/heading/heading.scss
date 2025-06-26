@@ -1,0 +1,38 @@
+@use '../../../styles/mixins.scss';
+
+.heading {
+    font-family: var(--font-family-heading), sans-serif;
+    font-weight: var(--font-weight-heading-regular);
+}
+
+.heading--xxs {
+    @include mixins.heading-xxs;
+}
+
+.heading--xs {
+    @include mixins.heading-xs;
+}
+
+.heading--sm {
+    @include mixins.heading-sm;
+}
+
+.heading--md {
+    @include mixins.heading-md;
+}
+
+.heading--lg {
+    @include mixins.heading-lg;
+}
+
+.heading--align-center {
+    text-align: center;
+}
+
+.heading--align-end {
+    text-align: right;
+}
+
+.heading--align-start {
+    text-align: left;
+}

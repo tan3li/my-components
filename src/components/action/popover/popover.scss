@@ -1,0 +1,13 @@
+.popover {
+    background: var(--menu-background-enabled-weak);
+    border-radius: var(--radius-md);
+    box-shadow: var(--elevation-3xl);
+    outline: none;
+}
+
+.popover__dialog {
+    max-height: inherit;
+    outline: none;
+    overflow: auto;
+    padding: var(--space-xxs) var(--space-none);
+}

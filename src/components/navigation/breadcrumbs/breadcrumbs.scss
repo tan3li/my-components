@@ -1,0 +1,65 @@
+@use '../../../styles/mixins.scss';
+
+.breadcrumbs {
+    align-items: center;
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.breadcrumb {
+    white-space: nowrap;
+}
+
+.breadcrumb:not(:last-child):after {
+    color: var(--nav-text-enabled-weak);
+    content: '/';
+    padding: 0 4px;
+}
+
+.breadcrumb--hidden {
+    display: none;
+}
+
+.breadcrumb-link {
+    color: var(--nav-text-enabled-weak);
+    cursor: pointer;
+    display: inline-block;
+    outline: none;
+    position: relative;
+    text-decoration: none;
+}
+
+.breadcrumb--truncated {
+    min-width: 30px;
+
+    > .breadcrumb-link {
+        overflow: clip;
+        text-overflow: ellipsis;
+        width: 100%;
+    }
+}
+
+.breadcrumb-link[data-hovered] {
+    text-decoration: underline;
+}
+
+.breadcrumb-link[data-focused] {
+    @include mixins.focus-ring(2px, 1px, var(--radius-xxs));
+}
+
+.breadcrumb-link[data-current] {
+    color: var(--nav-text-enabled-strong);
+    cursor: default;
+    font-weight: var(--label-md-strong-font-weight);
+    text-decoration: none;
+}
+
+.breadcrumb-link[data-disabled] {
+    cursor: default;
+
+    &:not([data-current]) {
+        color: var(--nav-text-disabled);
+    }
+}

@@ -1,0 +1,15 @@
+{
+  "resolver": "ts-jest-resolver",
+  "setupFiles": ["./setuptests.js"],
+  "testEnvironment": "jsdom",
+  "testMatch": [
+    "**/__tests__/**/*-test.[jt]s?(x)"
+  ],
+  "moduleNameMapper": {
+    "\\.svg": "<rootDir>/__tests__/__mocks__/svgmock.js",
+    "\\.(css|scss)$": "<rootDir>/__tests__/__mocks__/stylemock.js"
+  },
+  "transformIgnorePatterns": [
+    "/node_modules/(?!(@visma-severa)/)"
+  ]
+}

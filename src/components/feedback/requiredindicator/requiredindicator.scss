@@ -1,0 +1,8 @@
+.required-indicator {
+    align-items: flex-start;
+    color: var(--input-text-error);
+    display: flex;
+    left: -8px;
+    position: absolute;
+    top: 2px;
+}

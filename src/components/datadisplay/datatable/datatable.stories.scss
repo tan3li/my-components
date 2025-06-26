@@ -1,0 +1,30 @@
+.data-table__row > .data-table__sub-row-first-cell {
+    background: var(--data-background-cell-enabled-strong) padding-box;
+}
+
+.data-table__row--expandable {
+    > .data-table__cell {
+        background: var(--data-background-cell-enabled-strong) padding-box;
+        border-bottom: 1px solid var(--data-border-enabled-strong);
+        border-top: 1px solid var(--data-border-enabled-strong);
+    }
+
+    &:has(+ .data-table__row--expandable) > .data-table__cell {
+        border-bottom: none;
+    }
+
+    &.data-table__row--expanded > .data-table__cell {
+        border-bottom: 1px solid var(--data-background-cell-enabled-strong);
+    }
+}
+
+.data-table__row--last-child:has(+ .data-table__row--expandable) > .data-table__cell {
+    border-bottom: none;
+}
+
+.data-table__row--last-child:last-child,
+.data-table__row--last-child:has(+ .data-table__row:not(.data-table__row--expandable)) {
+    > .data-table__cell {
+        border-bottom: 1px solid var(--data-border-enabled-strong);
+    }
+}

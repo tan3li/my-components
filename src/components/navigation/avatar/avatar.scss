@@ -1,0 +1,111 @@
+@use '../../../styles/mixins.scss';
+
+.avatar {
+    align-items: center;
+    display: inline-flex;
+    gap: var(--space-xxs);
+}
+
+.avatar__label {
+    color: var(--nav-text-enabled-strong);
+}
+
+.avatar__description {
+    color: var(--nav-text-enabled-weak);
+    white-space: pre-wrap;
+}
+
+.avatar__label-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.avatar__icon {
+    color: var(--nav-icon-active-strong-inverted);
+}
+
+.avatar__image {
+    align-items: center;
+    background: var(--neutral-background-strong);
+    border-radius: 100%;
+    color: var(--nav-text-enabled-strong);
+    cursor: default;
+    flex-shrink: 0;
+    display: flex;
+    font-weight: 600;
+    justify-content: center;
+    line-height: normal;
+    text-align: center;
+}
+
+.avatar--xs .avatar__image {
+    font-size: 0.4rem;
+    height: 1rem;
+    width: 1rem;
+}
+
+.avatar--sm .avatar__image {
+    font-size: calc(0.4rem + 1px);
+    height: 1.25rem;
+    width: 1.25rem;
+}
+
+.avatar--md .avatar__image {
+    font-size: calc(0.4rem + 2px);
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.avatar--lg .avatar__image {
+    font-size: calc(0.4rem + 5px);
+    height: 2rem;
+    width: 2rem;
+}
+
+.avatar__scrim {
+    background: var(--neutral-background-scrim);
+    border-radius: 100%;
+    display: none;
+    height: 100%;
+    left: 0;
+    opacity: var(--opacity-25);
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.avatar__trigger-element {
+    position: relative;
+}
+
+.avatar__trigger-element:hover {
+    .avatar__scrim {
+        display: block;
+    }
+}
+
+.avatar__trigger-element--focused {
+    @include mixins.focus-ring(2px, 1px, 100%);
+}
+
+.avatar--pressable {
+    cursor: pointer;
+}
+
+.avatar--disabled {
+    cursor: default;
+
+    .avatar__label,
+    .avatar__description,
+    .avatar__image {
+        color: var(--nav-text-disabled);
+    }
+
+    .avatar__image {
+        background: var(--nav-background-disabled-strong);
+    }
+
+    img {
+        opacity: var(--opacity-25);
+    }
+}

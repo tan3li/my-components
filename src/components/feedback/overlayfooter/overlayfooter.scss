@@ -1,0 +1,12 @@
+.overlay-footer {
+    align-items: center;
+    background: var(--feedback-background-enabled-weak);
+    display: flex;
+    padding: var(--space-md) var(--space-xl);
+}
+
+.overlay-footer__actions {
+    display: flex;
+    gap: var(--space-xs);
+    margin-left: auto;
+}

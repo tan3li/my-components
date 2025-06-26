@@ -1,0 +1,9 @@
+.phone-number-field {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--space-md);
+
+    .select__content {
+        min-width: 200px;
+    }
+}

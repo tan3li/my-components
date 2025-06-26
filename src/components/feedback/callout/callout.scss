@@ -1,0 +1,53 @@
+@use '../../../styles/mixins.scss';
+
+.callout {
+    background: var(--feedback-background-neutral-strong);
+    border-radius: var(--radius-sm);
+    display: flex;
+    flex-direction: column;
+}
+
+.callout__header {
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    gap: var(--space-xs);
+    outline: none;
+    padding: var(--space-sm) var(--space-md);
+
+    &[aria-expanded='true'] {
+        padding-bottom: var(--space-xs);
+    }
+
+    &[data-focus-visible] {
+        @include mixins.focus-outline(2px, -2px, var(--radius-xxs));
+    }
+}
+
+.callout__header-left {
+    align-items: center;
+    display: flex;
+    flex: 1;
+    gap: var(--space-sm);
+}
+
+.callout__icon {
+    color: var(--feedback-icon-informative-strong);
+}
+
+.callout__title,
+.callout__panel-content {
+    color: var(--feedback-text-primary);
+    text-align: left;
+}
+
+.callout__expander-icon {
+    color: var(--neutral-button-icon-secondary-enabled);
+}
+
+.callout__panel-content {
+    padding: 0 calc(var(--space-md) + var(--space-lg) + var(--space-xs)) var(--space-sm)
+        calc(var(--space-md) + var(--space-lg) + var(--space-sm));
+}

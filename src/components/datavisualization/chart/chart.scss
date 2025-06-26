@@ -1,0 +1,303 @@
+@use '../../../styles/mixins.scss';
+
+.chart-container,
+.chart-tooltip-container {
+    /* Series colors */
+    --highcharts-color-0: var(--chart-series-1);
+    --highcharts-color-1: var(--chart-series-2);
+    --highcharts-color-2: var(--chart-series-3);
+    --highcharts-color-3: var(--chart-series-4);
+    --highcharts-color-4: var(--chart-series-5);
+    --highcharts-color-5: var(--chart-series-6);
+    --highcharts-color-6: var(--chart-series-7);
+    --highcharts-color-7: var(--chart-series-8);
+    --highcharts-color-8: var(--chart-series-9);
+    --highcharts-color-9: var(--chart-series-10);
+    --highcharts-color-10: var(--chart-series-11);
+    --highcharts-color-11: var(--chart-series-12);
+    --highcharts-color-12: var(--chart-series-13);
+    --highcharts-color-13: var(--chart-series-14);
+    --highcharts-color-14: var(--chart-series-15);
+    --highcharts-color-15: var(--chart-series-16);
+    --highcharts-color-16: var(--chart-series-17);
+    --highcharts-color-17: var(--chart-series-18);
+    --highcharts-color-18: var(--chart-series-19);
+    --highcharts-color-19: var(--chart-series-20);
+    --highcharts-color-20: var(--chart-series-21);
+
+    /* Background color */
+    --highcharts-background-color: var(--neutral-background-container-weak);
+
+    /* Series color classes. 0-9 are already defined in HC css file. */
+    @for $i from 10 through 20 {
+        .highcharts-color-#{$i} {
+            fill: var(--highcharts-color-#{$i});
+            stroke: var(--highcharts-color-#{$i});
+        }
+    }
+}
+
+.chart {
+    .highcharts-axis-title,
+    .highcharts-axis-labels,
+    .highcharts-data-label text {
+        fill: var(--data-text-enabled-weak);
+    }
+
+    .highcharts-a11y-proxy-element {
+        pointer-events: none;
+    }
+
+    .highcharts-legend-item {
+        > text {
+            fill: var(--data-text-enabled-weak);
+        }
+
+        &:hover > text {
+            fill: var(--data-text-enabled-strong);
+        }
+    }
+
+    .highcharts-legend-item-hidden * {
+        fill: var(--chart-series-disabled) !important;
+        stroke: var(--chart-series-disabled) !important;
+    }
+
+    .highcharts-legend-item-hidden .highcharts-focus-border {
+        fill: none !important;
+    }
+
+    .highcharts-legend-item-hidden:hover {
+        > text {
+            fill: var(--data-text-enabled-strong) !important;
+        }
+    }
+
+    .highcharts-stack-labels text {
+        fill: var(--data-text-enabled-strong);
+    }
+
+    .highcharts-grid-line {
+        stroke: var(--data-border-enabled-weak);
+    }
+
+    .highcharts-axis-line {
+        stroke: var(--data-border-enabled-strong);
+    }
+
+    .highcharts-column-series.highcharts-series-inactive,
+    .highcharts-bar-series.highcharts-series-inactive {
+        opacity: var(--chart-series-data-background-enabled);
+    }
+
+    .highcharts-legend-series-active .highcharts-series-hover {
+        opacity: var(--chart-series-legend-hover-active);
+    }
+
+    .highcharts-legend-series-active .highcharts-series:not(.highcharts-series-hover) {
+        opacity: var(--chart-series-legend-hover-inactive);
+    }
+
+    .highcharts-legend-point-active .highcharts-series .highcharts-point-hover {
+        fill-opacity: var(--chart-series-legend-hover-active);
+    }
+
+    .highcharts-legend-point-active
+        .highcharts-series
+        .highcharts-point:not(.highcharts-point-hover, .highcharts-point-select) {
+        opacity: var(--chart-series-legend-hover-inactive);
+    }
+
+    .highcharts-series {
+        .highcharts-point {
+            fill-opacity: var(--chart-series-data-background-enabled);
+        }
+
+        .highcharts-point-inactive {
+            opacity: var(--chart-series-data-background-enabled);
+        }
+
+        .highcharts-point-hover {
+            fill-opacity: var(--chart-series-data-background-hover);
+        }
+    }
+
+    .highcharts-pie-series .highcharts-point {
+        stroke: var(--highcharts-background-color);
+    }
+
+    .highcharts-line-series,
+    .highcharts-area-series,
+    .highcharts-areaspline-series {
+        .highcharts-point {
+            fill: var(--highcharts-background-color);
+            stroke-width: var(--chart-stroke-series-line-enabled);
+        }
+
+        &.highcharts-series-hover {
+            .highcharts-graph {
+                stroke-width: var(--chart-stroke-series-line-hover);
+            }
+
+            .highcharts-point {
+                stroke-width: var(--chart-stroke-series-line-hover);
+            }
+        }
+    }
+
+    .highcharts-area {
+        fill-opacity: var(--chart-series-data-line-background-enabled);
+    }
+
+    .highcharts-legend-item .highcharts-point {
+        opacity: 1;
+    }
+
+    .highcharts-data-label-connector {
+        stroke-width: var(--chart-stroke-series-line-enabled);
+    }
+}
+
+.highcharts-tooltip-container .highcharts-root {
+    overflow: visible; // allow drop-shadow to overflow
+}
+
+.chart-tooltip-container {
+    filter: drop-shadow(0 10px 15px #0000001a) drop-shadow(0 4px 6px #0000001a);
+}
+
+.chart-tooltip {
+    color: var(--feedback-text-secondary);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xxxs);
+    padding: var(--space-xs) var(--space-sm);
+}
+
+.chart-tooltip__line {
+    align-items: center;
+    display: flex;
+    gap: var(--space-3xs);
+
+    @include mixins.body-text-xs;
+}
+
+.chart-tooltip__legend-symbol {
+    height: 8px;
+    width: 8px;
+
+    > rect {
+        height: 8px;
+        rx: 4px;
+        ry: 4px;
+        width: 8px;
+    }
+}
+
+.chart-tooltip__value {
+    color: var(--feedback-text-primary);
+
+    @include mixins.label-sm;
+}
+
+.chart-total-label text {
+    fill: var(--data-text-enabled-strong);
+}
+
+/* Size specific styling */
+$sizes: 'xs', 'sm', 'md', 'lg';
+
+@each $size in $sizes {
+    .chart--#{$size} {
+        .highcharts-axis-title,
+        .highcharts-stack-labels text {
+            font-family: var(--chart-axis-title-#{$size}-font-family), sans-serif;
+            font-size: var(--chart-axis-title-#{$size}-font-size);
+            font-weight: var(--chart-axis-title-#{$size}-font-weight);
+            letter-spacing: var(--chart-axis-title-#{$size}-letter-spacing);
+            line-height: var(--chart-axis-title-#{$size}-line-height);
+        }
+
+        .highcharts-axis-labels {
+            font-family: var(--chart-axis-label-#{$size}-font-family), sans-serif;
+            font-size: var(--chart-axis-label-#{$size}-font-size);
+            font-weight: var(--chart-axis-label-#{$size}-font-weight);
+            letter-spacing: var(--chart-axis-label-#{$size}-letter-spacing);
+            line-height: var(--chart-axis-label-#{$size}-line-height);
+        }
+
+        .highcharts-data-label {
+            > text {
+                font-family: var(--chart-series-label-#{$size}-font-family), sans-serif;
+                font-size: var(--chart-series-label-#{$size}-font-size);
+                font-weight: var(--chart-series-label-#{$size}-font-weight);
+                letter-spacing: var(--chart-series-label-#{$size}-letter-spacing);
+                line-height: var(--chart-series-label-#{$size}-line-height);
+            }
+        }
+
+        .highcharts-legend-item {
+            > text {
+                font-family: var(--chart-series-label-#{$size}-font-family), sans-serif;
+                font-size: var(--chart-series-label-#{$size}-font-size);
+                font-weight: var(--chart-series-label-#{$size}-font-weight);
+                letter-spacing: var(--chart-series-label-#{$size}-letter-spacing);
+                line-height: var(--chart-series-label-#{$size}-line-height);
+            }
+
+            .highcharts-point {
+                height: var(--chart-size-series-legend-symbol-#{$size});
+                rx: var(--chart-radius-legend-#{$size});
+                ry: var(--chart-radius-legend-#{$size});
+                width: var(--chart-size-series-legend-symbol-#{$size});
+            }
+        }
+
+        .highcharts-yaxis-grid {
+            .highcharts-grid-line {
+                stroke-width: var(--chart-stroke-grid-line-#{$size});
+            }
+        }
+
+        .highcharts-xaxis {
+            .highcharts-axis-line {
+                stroke-width: var(--chart-stroke-axis-line-#{$size});
+            }
+        }
+
+        .highcharts-series .highcharts-point {
+            stroke-width: var(--chart-space-bar-vertical-gap-#{$size});
+        }
+
+        .chart-total-label text {
+            font-family: var(--chart-key-value-#{$size}-font-family), sans-serif;
+            font-size: var(--chart-key-value-#{$size}-font-size);
+            font-weight: var(--chart-key-value-#{$size}-font-weight);
+            letter-spacing: var(--chart-key-value-#{$size}-letter-spacing);
+            line-height: var(--chart-key-value-#{$size}-line-height);
+        }
+    }
+}
+
+.chart--xxs {
+    .highcharts-stack-labels text {
+        font-family: var(--chart-axis-title-xs-font-family), sans-serif;
+        font-size: var(--chart-axis-title-xs-font-size);
+        font-weight: var(--chart-axis-title-xs-font-weight);
+        letter-spacing: var(--chart-axis-title-xs-letter-spacing);
+        line-height: var(--chart-axis-title-xs-line-height);
+    }
+
+    .chart-total-label text {
+        font-family: var(--chart-key-value-xs-font-family), sans-serif;
+        font-size: var(--chart-key-value-xs-font-size);
+        font-weight: var(--chart-key-value-xs-font-weight);
+        letter-spacing: var(--chart-key-value-xs-letter-spacing);
+        line-height: var(--chart-key-value-xs-line-height);
+    }
+
+    .highcharts-grid-line,
+    .highcharts-axis-line {
+        stroke-width: 0;
+    }
+}

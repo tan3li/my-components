@@ -1,0 +1,7 @@
+.token.tag {
+    display: inline; // because our <Tag> component styles break Storybook tag
+}
+
+img {
+    object-fit: contain;
+}

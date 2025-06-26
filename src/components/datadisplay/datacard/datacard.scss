@@ -1,0 +1,120 @@
+@use '../../../styles/mixins.scss';
+
+.data-card {
+    align-items: flex-start;
+    background: var(--data-background-container-enabled);
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: var(--space-xs);
+    min-width: 235px;
+    position: relative;
+}
+
+.data-card.trigger-element {
+    cursor: pointer;
+
+    &:hover {
+        background: var(--data-background-cell-hover-weak);
+        box-shadow: var(--elevation-xl);
+    }
+}
+
+.data-card--focused {
+    @include mixins.focus-ring(3px, 1px, var(--radius-md));
+}
+
+.data-card--sm {
+    padding: var(--space-sm);
+}
+
+.data-card--md {
+    padding: var(--space-md);
+}
+
+.data-card--lg {
+    padding: var(--space-md);
+}
+
+.data-card--plain {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.data-card--card {
+    border: 1px solid var(--data-border-enabled-strong);
+    border-radius: var(--radius-md);
+}
+
+.data-card__header {
+    align-items: center;
+    display: flex;
+    gap: var(--space-xxs);
+    width: 100%;
+}
+
+.data-card__header-left {
+    align-items: center;
+    display: flex;
+    flex: 1 1 0;
+    gap: var(--space-xxs);
+}
+
+.data-card__badge {
+    margin-left: auto;
+}
+
+.data-card__header-icon {
+    color: var(--neutral-icon-weak);
+}
+
+.data-card__header-text {
+    color: var(--data-text-enabled-weak);
+}
+
+.data-card__body {
+    width: 100%;
+}
+
+.data-card__value-wrapper {
+    align-items: center;
+    display: flex;
+    gap: var(--space-xxs);
+}
+
+.data-card__value {
+    color: var(--data-text-enabled-strong);
+}
+
+.data-card__alert-icon--warning {
+    color: var(--feedback-icon-warning-weak);
+}
+
+.data-card__alert-icon--danger {
+    color: var(--feedback-icon-danger-strong);
+}
+
+.data-card__description {
+    color: var(--data-text-enabled-weak);
+}
+
+.data-card__visualization {
+    display: flex;
+    min-height: 6rem;
+    width: 100%;
+}
+
+.data-card--card.data-card--disabled {
+    border-color: var(--data-border-disabled);
+    background: var(--data-background-disabled);
+
+    .data-card__header-icon {
+        color: var(--data-icon-disabled);
+    }
+
+    .data-card__header-text,
+    .data-card__value,
+    .data-card__description {
+        color: var(--data-text-disabled);
+    }
+}

@@ -1,0 +1,266 @@
+.toggle-switch {
+    color: var(--input-text-enabled-weak);
+    cursor: pointer;
+    display: inline-flex;
+    position: relative;
+}
+
+.toggle-switch--labeled {
+    display: block;
+}
+
+/* React Aria adds input element as hidden wrapped inside span and this fixes it positioning when label positioned start */
+.toggle-switch--reversed > span {
+    right: 0;
+
+    > input {
+        float: right;
+    }
+}
+
+.toggle-switch__toggle-item-and-label {
+    display: inline-grid;
+}
+
+.toggle-switch__label-and-toggle-item {
+    display: grid;
+}
+
+.toggle-switch__toggle-item-and-label,
+.toggle-switch__label-and-toggle-item {
+    align-items: center;
+    column-gap: var(--space-xs);
+    grid-template-columns: auto 1fr;
+}
+
+.toggle-switch__label {
+    color: var(--input-text-enabled-strong);
+}
+
+.toggle-switch__switch-nob-icon {
+    position: absolute;
+    left: 0;
+}
+
+.toggle-switch__check-icon {
+    position: absolute;
+    right: 0;
+}
+
+.toggle-switch__toggle-item {
+    align-items: center;
+    border-radius: var(--radius-full);
+    color: var(--input-icon-enabled);
+    display: flex;
+    flex-shrink: 0;
+    justify-content: flex-start;
+    justify-self: end;
+    outline: 2px solid var(--input-border-enabled-strong);
+    outline-offset: -2px;
+    position: relative;
+
+    > .toggle-switch__switch-nob-icon {
+        display: flex;
+    }
+
+    > .toggle-switch__check-icon {
+        display: none;
+    }
+}
+
+.toggle-switch__toggle-item--sm {
+    height: 1rem;
+    width: 1.5rem;
+
+    > svg {
+        margin: 0 2px 0 4px;
+    }
+
+    .toggle-switch__check-icon {
+        height: 12px;
+        width: 12px;
+    }
+}
+
+.toggle-switch__toggle-item--md {
+    height: 1.5rem;
+    width: 2.25rem;
+
+    > svg {
+        margin: 0 3px 0 5px;
+    }
+
+    .toggle-switch__check-icon {
+        height: 18px;
+        width: 18px;
+    }
+}
+
+/* SELECTED STATE */
+.toggle-switch[data-selected] .toggle-switch__toggle-item {
+    background-color: var(--input-background-selected-enabled-strong);
+    color: var(--input-icon-selected-inverted-weak);
+    justify-content: flex-end;
+    outline: none;
+
+    > svg {
+        background-color: var(--input-background-enabled);
+        border-radius: var(--radius-full);
+    }
+
+    > .toggle-switch__switch-nob-icon {
+        display: none;
+    }
+
+    > .toggle-switch__check-icon {
+        display: flex;
+    }
+}
+
+/* HOVER STATE */
+.toggle-switch[data-hovered] .toggle-switch__toggle-item {
+    background-color: var(--input-background-enabled);
+    color: var(--input-icon-hover);
+    outline-color: var(--input-border-hover);
+}
+
+.toggle-switch[data-selected][data-hovered] .toggle-switch__toggle-item {
+    background-color: var(--input-background-selected-hover-strong);
+    color: var(--input-icon-selected-hover-inverted);
+    outline: none;
+}
+
+/* PRESSED STATE */
+.toggle-switch[data-pressed] .toggle-switch__toggle-item {
+    background-color: transparent;
+    color: var(--input-icon-hover);
+    outline-color: var(--input-border-hover);
+
+    &:before {
+        border-radius: var(--radius-full);
+        content: '';
+        height: 100%;
+        opacity: 0.5;
+        outline: 3px solid var(--input-border-pressed);
+        position: absolute;
+        width: 100%;
+    }
+}
+
+.toggle-switch[data-selected][data-pressed] .toggle-switch__toggle-item {
+    background-color: var(--input-background-selected-hover-strong);
+    color: var(--input-icon-selected-hover-inverted);
+    outline: none;
+
+    &:before {
+        outline-color: var(--input-border-pressed);
+    }
+}
+
+/* FOCUS STATE */
+.toggle-switch[data-focused]:not([data-pressed]) .toggle-switch__toggle-item {
+    outline-color: var(--input-border-enabled-strong);
+
+    &:before {
+        border-radius: var(--radius-full);
+        content: '';
+        height: 100%;
+        opacity: 0.5;
+        outline: 2px solid var(--informative-border-focus-ring);
+        outline-offset: 1px;
+        position: absolute;
+        width: 100%;
+    }
+}
+
+.toggle-switch[data-focused][data-hovered]:not([data-pressed]) .toggle-switch__toggle-item {
+    outline-color: var(--input-border-hover);
+}
+
+.toggle-switch[data-selected][data-focused]:not([data-pressed]) .toggle-switch__toggle-item {
+    outline: none;
+}
+
+/* INVALID STATE */
+.toggle-switch.toggle-switch--invalid .toggle-switch__toggle-item {
+    background-color: var(--input-background-error-weak);
+    color: var(--input-icon-error);
+    outline-color: var(--input-border-error);
+}
+
+.toggle-switch.toggle-switch--invalid[data-selected] .toggle-switch__toggle-item {
+    background-color: var(--input-background-error-strong);
+    color: var(--input-icon-error);
+    outline: none;
+}
+
+.toggle-switch.toggle-switch--invalid[data-hovered] .toggle-switch__toggle-item {
+    outline-color: var(--danger-800);
+    color: var(--danger-800);
+}
+
+.toggle-switch.toggle-switch--invalid[data-selected][data-hovered] .toggle-switch__toggle-item {
+    background-color: var(--danger-800);
+    color: var(--danger-800);
+}
+
+.toggle-switch.toggle-switch--invalid[data-pressed] .toggle-switch__toggle-item {
+    background-color: var(--input-background-enabled);
+    color: var(--danger-800);
+    outline-color: var(--danger-800);
+
+    &:before {
+        border-radius: var(--radius-full);
+        content: '';
+        height: 100%;
+        opacity: 0.5;
+        outline: 3px solid var(--danger-200);
+        position: absolute;
+        width: 100%;
+    }
+}
+
+.toggle-switch.toggle-switch--invalid[data-selected][data-pressed] .toggle-switch__toggle-item {
+    background-color: var(--danger-800);
+    color: var(--danger-800);
+
+    &:before {
+        outline-color: var(--danger-200);
+    }
+}
+
+.toggle-switch.toggle-switch--invalid[data-focused]:not([data-pressed]) .toggle-switch__toggle-item {
+    outline-color: var(--danger-800);
+}
+
+.toggle-switch.toggle-switch--invalid[data-focused][data-hovered]:not([data-pressed]) .toggle-switch__toggle-item {
+    outline-color: var(--danger-800);
+}
+
+.toggle-switch.toggle-switch--invalid[data-selected][data-focused]:not([data-pressed]) .toggle-switch__toggle-item {
+    outline: none;
+}
+
+/* DISABLED STATE */
+.toggle-switch[data-disabled] .toggle-switch__toggle-item {
+    background-color: var(--input-background-disabled-weak);
+    color: var(--input-icon-disabled-weak);
+    outline-color: var(--input-border-disabled);
+}
+
+.toggle-switch[data-disabled][data-selected] .toggle-switch__toggle-item {
+    background-color: var(--input-background-disabled-strong);
+    color: var(--input-icon-disabled-weak);
+    outline: none;
+}
+
+.toggle-switch.toggle-switch--invalid,
+.toggle-switch.toggle-switch--invalid .toggle-switch__label {
+    color: var(--input-text-error);
+}
+
+.toggle-switch[data-disabled],
+.toggle-switch[data-disabled] .toggle-switch__label {
+    color: var(--input-text-disabled);
+    cursor: default;
+}

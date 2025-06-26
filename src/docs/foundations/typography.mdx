@@ -1,0 +1,46 @@
+import {Meta} from '@storybook/addon-docs/blocks';
+import {TypographyTable} from '../doccomponents/typographytable/typographytable.js';
+import {
+    bodyStrongTypography,
+    bodyTypography,
+    headingTypography,
+    labelStrongTypography,
+    labelStrongUnderlineTypography,
+    labelTypography,
+    titleStrongTypography,
+    titleTypography
+} from '../doccomponents/typographytable/typographydata.js';
+
+<Meta title="Foundations/Typography" />
+
+# Typography
+
+Typography overview.
+
+### Heading
+
+Headings use Ubuntu font.
+
+<TypographyTable data={headingTypography} />
+
+### Body
+
+Body text uses Inter font.
+
+<TypographyTable data={bodyTypography} />
+<TypographyTable data={bodyStrongTypography} />
+
+### Label
+
+Labels use Inter font.
+
+<TypographyTable data={labelTypography} />
+<TypographyTable data={labelStrongTypography} />
+<TypographyTable data={labelStrongUnderlineTypography} />
+
+### Title
+
+Titles use Inter font.
+
+<TypographyTable data={titleTypography} />
+<TypographyTable data={titleStrongTypography} />

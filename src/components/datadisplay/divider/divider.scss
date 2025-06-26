@@ -1,0 +1,89 @@
+.divider {
+    align-items: center;
+    align-self: stretch;
+    display: flex;
+    justify-content: center;
+
+    &:after,
+    &:before {
+        content: '';
+        flex: 1 1 auto;
+    }
+}
+
+.divider--align-start:before {
+    content: none;
+}
+
+.divider--align-end:after {
+    content: none;
+}
+
+.divider--horizontal {
+    flex-direction: row;
+    width: 100%;
+
+    &:after,
+    &:before {
+        background-color: var(--neutral-border-weak);
+    }
+
+    &.divider--sm {
+        &:after,
+        &:before {
+            height: 1px;
+        }
+    }
+
+    &.divider--md {
+        &:after,
+        &:before {
+            height: 2px;
+        }
+    }
+
+    &.divider--lg {
+        &:after,
+        &:before {
+            height: 3px;
+        }
+    }
+}
+
+.divider--vertical {
+    flex-direction: column;
+    min-height: 100%; // do not set height because then it won't take flex parent height
+
+    &:after,
+    &:before {
+        background-color: var(--neutral-border-weak);
+        flex-basis: 50%;
+    }
+
+    &.divider--sm {
+        &:after,
+        &:before {
+            width: 1px;
+        }
+    }
+
+    &.divider--md {
+        &:after,
+        &:before {
+            width: 2px;
+        }
+    }
+
+    &.divider--lg {
+        &:after,
+        &:before {
+            width: 3px;
+        }
+    }
+}
+
+.divider__label {
+    color: var(--neutral-text-weak);
+    flex: 0 0 auto;
+    padding: var(--space-3xs) var(--space-xxs);
+}

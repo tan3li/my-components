@@ -1,0 +1,125 @@
+.slider {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.slider[data-disabled] {
+    color: var(--input-text-disabled);
+
+    .slider__track,
+    .slider__track-fill {
+        background-color: var(--input-border-disabled);
+    }
+}
+
+.slider__content {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-sm);
+}
+
+.slider__label {
+    flex: 1;
+    white-space: nowrap;
+}
+
+.slider__second-text-input-label {
+    margin-left: var(--space-xs);
+}
+
+.slider__text-field {
+    background-color: white;
+}
+
+.slider__top-content {
+    display: flex;
+}
+
+.slider__track {
+    background-color: var(--input-border-enabled-weak);
+    border-radius: 2px;
+    height: 4px;
+    position: absolute;
+    width: calc(100% + 20px);
+
+    &[data-disabled] {
+        background-color: var(--input-border-disabled);
+    }
+}
+
+.slider__track-container {
+    align-items: center;
+    display: flex;
+    height: 20px;
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+.slider__track-content {
+    width: 100%;
+}
+
+.slider__track-fill {
+    background-color: var(--input-border-enabled-strong);
+    border-radius: 2px;
+    height: 4px;
+    position: absolute;
+}
+
+.slider__track-thumb {
+    background-color: var(--input-background-enabled);
+    border-radius: 50%;
+    height: var(--space-xl);
+    position: absolute;
+    top: 10px;
+    width: var(--space-xl);
+}
+
+.slider__track-thumb[data-disabled] .slider__track-thumb-inner-circle {
+    border: 3px solid var(--input-border-disabled);
+}
+
+.slider__track-thumb[data-dragging] .slider__track-thumb-inner-circle {
+    border: 6px solid var(--input-border-enabled-strong);
+}
+
+.slider__track-thumb[data-focus-visible]:before {
+    border: 3px solid var(--informative-border-focus-ring);
+    border-radius: var(--radius-xl);
+    content: '';
+    height: var(--space-xl);
+    left: -3px;
+    opacity: var(--opacity-50);
+    position: absolute;
+    top: -3px;
+    width: var(--space-xl);
+}
+
+.slider__track-thumb-inner-circle {
+    border: 3px solid var(--input-border-enabled-strong);
+    border-radius: 50%;
+    height: 20px;
+    margin: var(--space-3xs);
+    position: absolute;
+    transform: none;
+    width: 20px;
+}
+
+.slider__track-wrapper {
+    display: flex;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100%;
+}
+
+.slider__value-label {
+    margin-left: auto;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.slider__value_label_container {
+    display: flex;
+}

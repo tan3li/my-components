@@ -1,0 +1,6 @@
+.trigger-element {
+    &:focus,
+    &:focus-visible {
+        outline: none;
+    }
+}

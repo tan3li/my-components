@@ -1,0 +1,16 @@
+import {Meta} from '@storybook/addon-docs/blocks';
+import {SpacingTable} from '../doccomponents/spacingtable/spacingtable.js';
+import {coreTokens} from '@visma-severa/severa-design-tokens';
+
+<Meta title="Foundations/Spacing" />
+
+# Spacing
+
+<SpacingTable
+    data={Object.entries(coreTokens.dimension)
+        .filter(([key, val]) => key.startsWith('space') && val.reference.includes('space'))
+        .map(([key, val]) => ({
+            token: key,
+            value: val.value
+        }))}
+/>

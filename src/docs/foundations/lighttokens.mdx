@@ -1,0 +1,132 @@
+import {Meta} from '@storybook/addon-docs/blocks';
+import {ColorTokenList} from '../doccomponents/colortokenlist/colortokenlist.tsx';
+import {lightTokens} from '@visma-severa/severa-design-tokens';
+import {useCallback, useMemo, useState} from 'react';
+import {SearchField} from '../../components/index.ts';
+import {useFilter} from 'react-aria';
+import {kebabCase, splitSeparateNumbers} from 'change-case';
+import {debounce} from '../../utils/debounce.ts';
+
+<Meta title="Foundations/Light tokens" />
+
+<div>
+    {(() => {
+        const filter = useFilter({sensitivity: 'base'});
+        const [searchText, setSearchText] = useState('');
+        const onSearch = useCallback(debounce(setSearchText, 300), []);
+        const {globalTokens, componentTokens} = useMemo(() => {
+            const tokenEntries = Object.entries(lightTokens.color);
+            const globalTokenEntries = [];
+            const componentTokenEntries = [];
+
+            for (let i = 0, len = tokenEntries.length; i < len; i++) {
+                const entry = tokenEntries[i];
+                const [key] = entry;
+
+                if (searchText) {
+                    const {contains} = filter;
+                    const kebabCaseTokenName = kebabCase(key, {split: splitSeparateNumbers});
+
+                    if (!contains(key, searchText) && !contains(kebabCaseTokenName, searchText)) {
+                        continue;
+                    }
+                }
+
+                if (key.includes('Button') ||
+                    key.startsWith('feedback') ||
+                    key.startsWith('input') ||
+                    key.startsWith('menu') ||
+                    key.startsWith('data') ||
+                    key.startsWith('nav') ||
+                    key.startsWith('chart')
+                ) {
+                    componentTokenEntries.push(entry);
+                } else {
+                    globalTokenEntries.push(entry);
+                }
+            }
+
+            return {
+                globalTokens: Object.fromEntries(globalTokenEntries),
+                componentTokens: Object.fromEntries(componentTokenEntries)
+            };
+        }, [searchText]);
+
+        return (
+            <div style={{display: 'flex', flexDirection: 'column', gap: '2rem'}}>
+                <SearchField
+                    aria-label="Search"
+                    onChange={onSearch}
+                    placeholder="Search in both groups"
+                />
+                <ColorTokenList
+                    getGroup={(tokenKey) => {
+                        if (tokenKey.startsWith('accent')) {
+                            return 'Accent';
+                        } else if (tokenKey.startsWith('neutral')) {
+                            return 'Neutral';
+                        } else if (tokenKey.startsWith('danger')) {
+                            return 'Danger';
+                        } else if (tokenKey.startsWith('success')) {
+                            return 'Success';
+                        } else if (tokenKey.startsWith('informative')) {
+                            return 'Informative';
+                        } else if (tokenKey.startsWith('warning')) {
+                            return 'Warning';
+                        } else if (tokenKey.startsWith('disabled')) {
+                            return 'Disabled';
+                        }
+
+                        return 'Other';
+                    }}
+                    groupOrder={[
+                        'Accent',
+                        'Success',
+                        'Neutral',
+                        'Informative',
+                        'Danger',
+                        'Warning',
+                        'Disabled',
+                        'Other'
+                    ]}
+                    title="Global tokens"
+                    tokens={globalTokens}
+                />
+                <ColorTokenList
+                    getGroup={(tokenKey) => {
+                        if (tokenKey.includes('Button') ) {
+                            return 'Button';
+                        } else if (tokenKey.startsWith('feedback')) {
+                            return 'Feedback';
+                        } else if (tokenKey.startsWith('menu')) {
+                            return 'Menu';
+                        } else if (tokenKey.startsWith('input')) {
+                            return 'Input';
+                        } else if (tokenKey.startsWith('data')) {
+                            return 'Data';
+                        } else if (tokenKey.startsWith('nav')) {
+                            return 'Navigation';
+                        } else if (tokenKey.startsWith('chart')) {
+                            return 'Chart';
+                        }
+
+                        return 'Other';
+                    }}
+                    groupOrder={[
+                        'Button',
+                        'Chart',
+                        'Data',
+                        'Feedback',
+                        'Input',
+                        'Menu',
+                        'Navigation',
+                        'Other'
+                    ]}
+                    title="Component tokens"
+                    tokens={componentTokens}
+                />
+            </div>
+        );
+    })()}
+
+</div>

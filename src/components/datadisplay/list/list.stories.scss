@@ -1,0 +1,38 @@
+@use '../../../styles/variables.scss';
+
+.list-stories__box {
+    align-items: center;
+    background: var(--informative-100);
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem;
+}
+
+.list-stories__flex-boxes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+
+    > .list-stories__box {
+        flex: 1 1 100%;
+
+        @media (min-width: variables.$breakpoint-sm) {
+            flex-basis: calc(50% - var(--space-xs));
+        }
+
+        @media (min-width: variables.$breakpoint-lg) {
+            flex-basis: calc(20% - var(--space-xs));
+        }
+    }
+}
+
+.list-stories__flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.list-stories__flex-col--lg-right {
+    @media (min-width: variables.$breakpoint-lg) {
+        align-items: flex-end;
+    }
+}

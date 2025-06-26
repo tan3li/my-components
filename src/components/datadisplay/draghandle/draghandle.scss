@@ -1,0 +1,33 @@
+@use '../../../styles/mixins.scss';
+
+.drag-handle {
+    align-items: center;
+    background: none;
+    border: none;
+    border-radius: var(--radius-xxs);
+    color: var(--data-icon-enabled-weak);
+    cursor: move;
+    display: inline-flex;
+    justify-content: center;
+    padding: 0;
+    position: relative;
+
+    &:hover:not([disabled]) {
+        background: var(--data-background-selected-enabled-weak);
+    }
+
+    &[aria-pressed] {
+        background: var(--data-background-selected-hover-weak);
+    }
+
+    &:focus-visible {
+        outline: none;
+
+        @include mixins.focus-ring(3px, 0, var(--radius-xxs));
+    }
+
+    &[disabled] {
+        color: var(--data-icon-disabled);
+        cursor: default;
+    }
+}

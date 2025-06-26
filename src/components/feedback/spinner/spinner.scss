@@ -1,0 +1,130 @@
+@keyframes spinner-rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spinner-fill {
+    0% {
+        clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0);
+    }
+
+    25% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0);
+    }
+
+    50% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%);
+    }
+
+    75% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%);
+    }
+
+    100% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0);
+    }
+}
+
+.spinner {
+    align-items: center;
+    display: inline-flex;
+    gap: var(--space-xs);
+    justify-content: center;
+}
+
+.spinner--label-bottom {
+    flex-direction: column;
+}
+
+.spinner--label-right {
+    flex-direction: row;
+}
+
+.spinner__label {
+    color: var(--neutral-text-strong);
+}
+
+.spinner__loader {
+    animation: spinner-rotate 1s linear infinite;
+    border-radius: 50%;
+    position: relative;
+}
+
+.spinner__loader:before {
+    animation: spinner-fill 2s linear infinite;
+    border-radius: 50%;
+    border-style: solid;
+    box-sizing: border-box;
+    content: '';
+    inset: 0;
+    position: absolute;
+}
+
+.spinner--accent {
+    .spinner__loader {
+        color: var(--accent-border-strong);
+    }
+}
+
+.spinner--neutral {
+    .spinner__loader {
+        color: var(--feedback-border-enabled-strong);
+    }
+}
+
+.spinner--sm {
+    gap: var(--space-xs);
+
+    .spinner__loader {
+        height: 16px;
+        min-width: 16px;
+        width: 16px;
+
+        &:before {
+            border-width: 2px;
+        }
+    }
+}
+
+.spinner--md {
+    gap: var(--space-xs);
+
+    .spinner__loader {
+        height: 24px;
+        min-width: 24px;
+        width: 24px;
+
+        &:before {
+            border-width: 3px;
+        }
+    }
+}
+
+.spinner--lg {
+    gap: var(--space-sm);
+
+    .spinner__loader {
+        height: 48px;
+        min-width: 48px;
+        width: 48px;
+
+        &:before {
+            border-width: 6px;
+        }
+    }
+}
+
+.spinner--xl {
+    gap: var(--space-md);
+
+    .spinner__loader {
+        height: 72px;
+        min-width: 72px;
+        width: 72px;
+
+        &:before {
+            border-width: 8px;
+        }
+    }
+}

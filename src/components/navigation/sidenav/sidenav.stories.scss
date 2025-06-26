@@ -1,0 +1,36 @@
+.sidenav-stories__header {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    .severa-logo:hover {
+        cursor: pointer;
+    }
+}
+
+.sidenav-stories__header--expanded {
+    flex-direction: row;
+    gap: var(--space-xxs);
+}
+
+.sidenav-stories__system-status-btn {
+    align-items: center;
+    display: flex;
+    height: var(--size-lg);
+    justify-content: center;
+    position: absolute;
+    right: -12px;
+    top: -12px;
+    width: var(--size-lg);
+}
+
+.sidenav-stories__system-status-btn--expanded {
+    position: relative;
+    right: auto;
+    top: auto;
+}
+
+.sidenav-stories__system-status-icon {
+    color: var(--success-icon-strong-inverted);
+}

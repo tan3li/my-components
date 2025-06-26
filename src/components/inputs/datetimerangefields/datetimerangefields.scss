@@ -1,0 +1,10 @@
+.datetime-range-fields {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.datetime-range-fields__row {
+    display: flex;
+    gap: var(--space-md);
+}

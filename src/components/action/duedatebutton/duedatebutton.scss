@@ -1,0 +1,77 @@
+.due-date-button--neutral {
+    background: var(--neutral-button-background-primary-enabled);
+    color: var(--neutral-button-text-primary-enabled);
+
+    &[data-hovered] {
+        background: var(--neutral-button-background-primary-hover);
+        color: var(--neutral-button-text-primary-hover);
+    }
+
+    &[data-focused] {
+        background: var(--neutral-button-background-primary-enabled);
+        color: var(--neutral-button-text-primary-enabled);
+    }
+
+    &[data-pressed] {
+        background: var(--neutral-button-background-primary-hover);
+        color: var(--neutral-button-text-primary-hover);
+    }
+}
+
+.due-date-button--danger {
+    background: var(--danger-button-background-secondary-enabled);
+    color: var(--danger-button-text-secondary-enabled);
+
+    &[data-hovered] {
+        background: var(--danger-button-background-secondary-hover);
+        color: var(--danger-button-text-secondary-hover);
+    }
+
+    &[data-focused] {
+        background: var(--danger-button-background-secondary-enabled);
+        color: var(--danger-button-text-secondary-enabled);
+    }
+
+    &[data-pressed] {
+        background: var(--danger-button-background-secondary-pressed);
+        color: var(--danger-button-text-secondary-hover);
+
+        &:before {
+            border-color: var(--danger-button-border-pressed);
+        }
+    }
+
+    &[disabled] {
+        background: var(--danger-button-background-disabled);
+        color: var(--danger-button-text-disabled);
+    }
+}
+
+.due-date-button--warning {
+    background: var(--warning-button-background-secondary-enabled);
+    color: var(--warning-button-text-secondary-enabled);
+
+    &[data-hovered] {
+        background: var(--warning-button-background-secondary-hover);
+        color: var(--warning-button-text-secondary-hover);
+    }
+
+    &[data-focused] {
+        background: var(--warning-button-background-secondary-enabled);
+        color: var(--warning-button-text-secondary-enabled);
+    }
+
+    &[data-pressed] {
+        background: var(--warning-button-background-primary-hover);
+        color: var(--warning-button-text-secondary-hover);
+
+        &:before {
+            border-color: var(--warning-button-border-pressed);
+        }
+    }
+
+    &[disabled] {
+        background: var(--warning-button-background-disabled);
+        color: var(--warning-button-text-disabled);
+    }
+}

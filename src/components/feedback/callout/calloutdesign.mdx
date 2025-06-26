@@ -1,0 +1,38 @@
+import {FlexLayout} from '../../../docs/doccomponents/flexlayout/flexlayout.js';
+import {Donts, Dos} from '../../../docs/doccomponents/guidelines/guidebox.js';
+
+### Usage
+
+> A Callout is an informational component that highlights supplementary content, tips, or contextual guidance to help users better understand product features or settings without interrupting their primary workflow. The Callout component combines features from both Collapsible and InlineAlert. It functions like a collapsible element while maintaining the visual style of an InlineAlert.
+
+**Dismissal**: Unlike other notifications, callouts do not dismiss automatically. They stay on the screen and load with the page content. Product teams can add a toggle switch to show or hide all callouts on a page.
+
+**Links**: Callouts can include links when needed. Use links only to provide extra context or helpful information for the user's current task. Don't use links to send users to different parts of the product or start new workflows.
+
+<FlexLayout direction="row">
+    <FlexLayout direction="column" gap={0}>
+        <Dos>
+            <ul>
+                <li>Use Callouts to provide helpful context, tips, or explanations that enhance user understanding</li>
+                <li>Place Callouts near relevant settings or features they reference</li>
+                <li>Keep content concise and scannable. Aim for 1-2 sentences</li>
+                <li>Include Callouts for complex features that benefit from additional explanation</li>
+            </ul>
+        </Dos>
+    </FlexLayout>
+    <FlexLayout direction="column" gap={0}>
+        <Donts>
+            <ul>
+                <li>
+                    Don't use Callouts for critical warnings or errors. Use dedicated alert components such as
+                    InlineAlert instead
+                </li>
+                <li>Don't overuse Callouts, as they can create visual clutter and reduce their effectiveness</li>
+                <li>Don't include lengthy explanations that could overwhelm the interface</li>
+                <li>Don't place Callouts where they block important user tasks or workflows</li>
+                <li>Don't use Callouts for primary actions or navigation. Stick to helpful supplementary content</li>
+                <li>Don't forget that users can collapse these. Make sure expanded content adds real value</li>
+            </ul>
+        </Donts>
+    </FlexLayout>
+</FlexLayout>

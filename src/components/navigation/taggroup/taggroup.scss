@@ -1,0 +1,32 @@
+.tag-group {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+}
+
+.tag-group__tags {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.tag-group--xs,
+.tag-group--sm {
+    gap: var(--space-xs);
+
+    .tag-group__tags {
+        gap: var(--space-xs);
+    }
+}
+
+.tag-group--md {
+    gap: var(--space-sm);
+
+    .tag-group__tags {
+        gap: var(--space-sm);
+    }
+}
+
+.tag--hidden {
+    display: none;
+}

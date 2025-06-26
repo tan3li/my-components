@@ -1,0 +1,172 @@
+.radio {
+    cursor: pointer;
+    display: inline-flex;
+    position: relative;
+}
+
+.radio--reversed {
+    display: block;
+}
+
+/* React Aria adds input element as hidden wrapped inside span and this fixes it positioning when label positioned start */
+.radio--reversed > span {
+    right: 0;
+
+    > input {
+        float: right;
+    }
+}
+
+.radio__button {
+    position: relative;
+    border-radius: var(--radius-full);
+    border: 2px solid var(--input-border-enabled-strong);
+    justify-self: end;
+}
+
+.radio__label {
+    color: var(--input-text-enabled-strong);
+}
+
+.radio__button--sm {
+    width: 16px;
+    height: 16px;
+}
+
+.radio__button--md {
+    width: 24px;
+    height: 24px;
+}
+
+.radio__button-and-label {
+    display: inline-grid;
+}
+
+.radio__label-and-button {
+    display: grid;
+}
+
+.radio__button-and-label,
+.radio__label-and-button {
+    align-items: center;
+    column-gap: var(--space-xs);
+    grid-template-columns: auto 1fr;
+}
+
+.radio[data-selected] {
+    .radio__button {
+        border-color: var(--input-background-selected-enabled-strong);
+    }
+
+    .radio__button--sm {
+        border-width: 4px;
+    }
+
+    .radio__button--md {
+        border-width: 8px;
+    }
+}
+
+/* HOVER STATE */
+.radio[data-hovered] .radio__button {
+    border-color: var(--input-border-hover);
+}
+
+/* PRESSED STATE */
+.radio[data-pressed] .radio__button {
+    border-color: var(--input-border-hover);
+
+    &:before {
+        border-radius: var(--radius-full);
+        content: '';
+        height: 100%;
+        opacity: 0.5;
+        outline: 3px solid var(--input-border-pressed);
+        outline-offset: 2px;
+        position: absolute;
+        width: 100%;
+    }
+}
+
+.radio[data-pressed][data-selected] {
+    .radio__button--sm:before {
+        outline-offset: 4px;
+    }
+
+    .radio__button--md:before {
+        outline-offset: 8px;
+    }
+}
+
+/* FOCUSED STATE */
+.radio[data-focused]:not([data-pressed]) .radio__button {
+    border-color: var(--input-border-enabled-strong);
+
+    &:before {
+        border-radius: var(--radius-full);
+        content: '';
+        height: 100%;
+        opacity: 0.5;
+        outline: 3px solid var(--informative-border-focus-ring);
+        outline-offset: 3px;
+        position: absolute;
+        width: 100%;
+    }
+}
+
+.radio[data-focused]:not([data-pressed])[data-selected] {
+    .radio__button {
+        border-color: var(--input-background-selected-enabled-strong);
+    }
+
+    .radio__button--sm:before {
+        outline-offset: 5px;
+    }
+
+    .radio__button--md:before {
+        outline-offset: 9px;
+    }
+}
+
+/* DISABLED STATE */
+.radio[data-disabled] {
+    cursor: default;
+
+    .radio__button {
+        border-color: var(--input-border-disabled);
+        background: var(--input-background-disabled-weak);
+    }
+
+    .radio__label {
+        color: var(--input-text-disabled);
+    }
+}
+
+/* ERROR STATE */
+.radio[data-invalid] {
+    .radio__button {
+        border-color: var(--input-border-error);
+        background: var(--input-background-error-weak);
+    }
+
+    .radio__label {
+        color: var(--input-text-error);
+    }
+}
+
+.radio[data-invalid][data-hovered] .radio__button {
+    border-color: var(--danger-800);
+}
+
+.radio[data-invalid][data-pressed] .radio__button {
+    border-color: var(--danger-800);
+
+    &:before {
+        outline-color: var(--danger-200);
+    }
+}
+
+.radio[data-invalid][data-focused]:not([data-pressed]) .radio__button {
+    border-color: var(--input-border-error);
+    background: var(--input-background-error-weak);
+}

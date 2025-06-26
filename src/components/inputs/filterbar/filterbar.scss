@@ -1,0 +1,81 @@
+.filter-bar {
+    align-items: center;
+    background: var(--neutral-background-container-weak);
+    display: flex;
+    width: 100%;
+}
+
+.filter-bar--card {
+    border-radius: var(--radius-sm);
+
+    .filter-bar__filters {
+        padding: var(--space-sm) var(--space-xs);
+    }
+
+    .filter-bar__actions {
+        padding: var(--space-sm) var(--space-xs) var(--space-sm) 0;
+    }
+}
+
+.filter-bar--plain {
+    border-bottom: var(--stroke-xxs) solid var(--neutral-border-weak);
+
+    .filter-bar__filters {
+        padding: var(--space-xs);
+    }
+
+    .filter-bar__actions {
+        padding: var(--space-xs) var(--space-xs) var(--space-xs) 0;
+    }
+}
+
+.filter-bar__filters-wrapper {
+    flex: 1;
+    min-width: 0;
+    position: relative;
+}
+
+.filter-bar__filters {
+    align-items: center;
+    display: flex;
+    gap: var(--space-sm);
+    scroll-behavior: smooth;
+    overflow: hidden visible;
+}
+
+.filter-bar__actions {
+    align-items: center;
+    display: flex;
+    flex: none;
+}
+
+.filters-button__icon {
+    color: var(--danger-icon-strong);
+    position: absolute;
+}
+
+.filters-button.button--sm .filters-button__icon {
+    left: 0;
+    top: -1px;
+}
+
+.filters-button.button--md .filters-button__icon {
+    left: 4px;
+    top: 0;
+}
+
+.filter-bar__scroll-btn {
+    box-shadow: var(--elevation-lg);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.filter-bar__scroll-btn--left {
+    left: var(--space-xxs);
+}
+
+.filter-bar__scroll-btn--right {
+    right: var(--space-xxs);
+}

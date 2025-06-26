@@ -1,0 +1,134 @@
+import {Meta} from '@storybook/addon-docs/blocks';
+
+<Meta title="Getting started/Intro" />
+
+# Severa UI Component Library
+
+Collection of Severa UI components and some general documentation.
+
+This Storybook is up-to-date with main-branch of [severa-ui-components](https://github.com/Visma-Severa/severa-ui-components) repository. Release version content may be behind.
+
+## Getting started
+
+As this library is private, getting it up and running requires some extra steps.
+
+### Access token
+
+Installation requires GitHub personal access token assigned to NPM_TOKEN environment variable.
+
+1. Go to GitHub Setting > Developer settings > Personal access tokens > Tokens (classic) > Generate new token (classic)
+2. Give the token some name, f.e. "GitHub packages" and expiration date, and give it at least `read:packages` rights. If you're planning to release packages, `write:packages` rights could be also given.
+3. Create the token and make sure to copy-paste it somewhere (f.e. 1Password) as you can see it only once.
+4. Configure token to use SSO by clicking "Configure SSO" and select Visma Severa.
+5. On Windows search for "env" and select "Edit the system environment variables" or similar.
+6. In the opened dialog click "Environment variables..." and add new user variable called NPM_TOKEN and give the GitHub token as a value.
+7. Restart your computer.
+8. Set up `.yarnrc.yml` or `.npmrc` file in your project root to use your NPM_TOKEN.
+
+`.yarnrc.yml`
+
+```yaml
+npmScopes:
+    visma-severa:
+        npmAlwaysAuth: true
+        npmAuthToken: '${NPM_TOKEN-unset}'
+        npmRegistryServer: 'https://npm.pkg.github.com'
+```
+
+`.npmrc`
+
+```text
+@visma-severa:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${NPM_TOKEN}
+```
+
+### Installation
+
+If you have set NPM_TOKEN environment variable with valid token, you can install the package via `yarn`:
+
+```shell
+yarn add @visma-severa/severa-ui-components@x.y.z
+```
+
+or `npm`
+
+```shell
+npm install @visma-severa/severa-ui-components@x.y.z
+```
+
+where `x.y.z` is the version you want to install.
+
+### Usage
+
+Styling for components is provided via CSS file which can be included in your project. For example, if using Sass/SCSS,
+you can import the CSS file from the package like this:
+
+```scss
+@import '@visma-severa/severa-ui-components/dist/index.css';
+```
+
+Components use Inter and Ubuntu fonts. Include them by embedding the following code within the `<head>` of your HTML document.
+
+```html
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Ubuntu:wght@500;700&display=swap"
+    rel="stylesheet" />
+```
+
+Next, you can import any component and start playing around.
+
+```jsx
+import {Button, ButtonStyle, ButtonVariant} from '@visma-severa/severa-ui-components';
+
+export function MyButton() {
+    return (
+        <Button style={ButtonStyle.Fill} variant={ButtonVariant.Neutral}>
+            Click me
+        </Button>
+    );
+}
+```
+
+### Internationalization
+
+Many components in this library use built-in strings. These string expect to be translated with `i18next` so you need to provide i18n-instance via `I18nextProvider`.
+Library provides english `translation.json` file which can be used as needed when configuring your i18-instance.
+
+Additionally, date & time related components need information about culture (= formatting of date & time), language to use for months, weekdays etc. and timezone.
+These locales and timezone can be provided via `I18nProvider`.
+
+In the end, you should set up your app something like this:
+
+```jsx
+import {I18nextProvider, initReactI18next} from 'react-i18next';
+import {I18nProvider} from '@visma-severa/severa-ui-components';
+import i18n from 'i18next';
+
+i18n.use(initReactI18next).init({
+    /* Your i18next options */
+});
+
+export function MyApp() {
+    return (
+        <I18nextProvider i18n={i18n}>
+            <I18nProvider cultureLocale="fi-FI" languageLocale="en-GB" timeZone="Europe/Helsinki">
+                {/* Your app using library components */}
+            </I18nProvider>
+        </I18nextProvider>
+    );
+}
+```
+
+### Design tokens
+
+Design tokens live in their own package [severa-design-tokens](https://github.com/Visma-Severa/severa-design-tokens) which is a dependency of this library. Design tokens package provides
+
+- All design tokens in CSS format
+- All design tokens in JS/TS format
+- Breakpoint tokens in SCSS format
+
+CSS tokens are included in the CSS file provided by this library, so you don't have to import them separately in your CSS.
+However, it's recommended to install design tokens package alongside component library, so you can use the tokens in your JS/TS code
+and utilize SCSS breakpoint tokens in your media queries.

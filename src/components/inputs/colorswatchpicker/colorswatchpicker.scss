@@ -1,0 +1,85 @@
+@use '../../../styles/mixins.scss';
+
+.color-swatch {
+    border-radius: var(--radius-xs);
+}
+
+.color-swatch--xs {
+    height: 28px;
+    width: 28px;
+}
+
+.color-swatch--sm {
+    height: 32px;
+    width: 32px;
+}
+
+.color-swatch--md {
+    height: 40px;
+    width: 40px;
+}
+
+.color-swatch-picker-item {
+    cursor: pointer;
+    position: relative;
+    outline: none;
+}
+
+.color-swatch-picker-item__line {
+    color: var(--input-border-disabled);
+}
+
+.color-swatch-picker-item__check {
+    color: var(--input-icon-selected);
+}
+
+.color-swatch-picker-item__check,
+.color-swatch-picker-item__line {
+    display: none;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.color-swatch-picker-item[data-hovered] .color-swatch {
+    border: var(--stroke-xs) solid var(--input-border-active);
+    box-shadow: var(--elevation-lg);
+}
+
+.color-swatch-picker-item[data-invalid] .color-swatch {
+    border: var(--stroke-xs) solid var(--input-border-error);
+}
+
+.color-swatch-picker-item[data-focus-visible] {
+    @include mixins.focus-ring(3px, 2px, var(--radius-xs));
+}
+
+.color-swatch-picker-item[data-selected] .color-swatch-picker-item__check {
+    display: block;
+}
+
+.color-swatch-picker-item[data-disabled] {
+    cursor: default;
+
+    .color-swatch {
+        border: var(--stroke-xs) solid var(--input-border-disabled);
+    }
+
+    .color-swatch-picker-item__line {
+        display: block;
+    }
+}
+
+.color-swatch-picker {
+    align-content: center;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+
+    &[data-layout='stack'] {
+        flex-direction: column;
+    }
+}

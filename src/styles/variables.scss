@@ -1,0 +1,7 @@
+@forward '~@visma-severa/severa-design-tokens/dist/index.scss';
+
+// z-index values > 1 used throughout the library.
+$sticky-header-z-index: 2;
+$drawer-z-index: 100;
+$modal-z-index: 999;
+$toast-z-index: 9999;

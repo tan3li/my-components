@@ -1,0 +1,64 @@
+@use '../../../styles/mixins.scss';
+
+.segmented-control {
+    align-items: center;
+    background: var(--neutral-button-background-primary-enabled);
+    border-radius: var(--radius-sm);
+    display: inline-flex;
+    gap: 1px;
+    min-height: var(--space-xxl);
+    padding: var(--space-3xs);
+}
+
+.segmented-control-item__icon {
+    color: var(--neutral-button-icon-primary-enabled);
+    height: 18px;
+    width: 18px;
+}
+
+.segmented-control-item__label {
+    color: var(--neutral-button-text-primary-enabled);
+}
+
+.segmented-control-item {
+    align-items: center;
+    background: transparent;
+    border: none;
+    border-radius: var(--radius-xs);
+    cursor: pointer;
+    display: flex;
+    gap: var(--space-xxs);
+    outline: none;
+    padding: var(--space-xxs) var(--space-sm);
+    position: relative;
+}
+
+.segmented-control-item[data-hovered] {
+    background: var(--neutral-button-background-secondary-hover);
+}
+
+.segmented-control-item:active {
+    background: var(--neutral-button-background-primary-hover);
+}
+
+.segmented-control-item[data-selected] {
+    background: var(--neutral-button-background-primary-active-weak);
+    box-shadow: var(--elevation-md);
+}
+
+.segmented-control-item[data-focus-visible] {
+    @include mixins.focus-ring(2px, -2px, var(--radius-xs));
+}
+
+.segmented-control-item[data-disabled] {
+    background: transparent;
+    cursor: default;
+
+    .segmented-control-item__label {
+        color: var(--neutral-button-text-disabled);
+    }
+
+    .segmented-control-item__icon {
+        color: var(--neutral-button-icon-disabled);
+    }
+}

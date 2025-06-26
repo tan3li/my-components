@@ -1,0 +1,21 @@
+@use '../../../styles/mixins.scss';
+
+.label {
+    font-family: var(--font-family-label), sans-serif;
+}
+
+.label--xs {
+    @include mixins.label-xs;
+}
+
+.label--sm {
+    @include mixins.label-sm;
+}
+
+.label--md {
+    @include mixins.label-md;
+}
+
+.label--lg {
+    @include mixins.label-lg;
+}

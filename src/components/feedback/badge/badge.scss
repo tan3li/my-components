@@ -1,0 +1,111 @@
+.badge {
+    align-items: center;
+    border-radius: var(--radius-sm);
+    display: inline-flex;
+    gap: var(--space-3xs);
+    justify-content: center;
+    padding: var(--space-3xs) var(--space-xs);
+}
+
+.badge__label {
+    color: var(--feedback-text-primary);
+}
+
+.badge--neutral > .badge__icon {
+    color: var(--feedback-icon-neutral-weak);
+}
+
+.badge--success > .badge__icon {
+    color: var(--feedback-icon-success-strong);
+}
+
+.badge--danger > .badge__icon {
+    color: var(--feedback-icon-danger-strong);
+}
+
+.badge--warning > .badge__icon {
+    color: var(--feedback-icon-warning-weak);
+}
+
+.badge--informative > .badge__icon {
+    color: var(--feedback-icon-informative-strong);
+}
+
+.fill-badge--neutral {
+    background: var(--feedback-background-neutral-strong);
+}
+
+.fill-badge--success {
+    background: var(--feedback-background-success-weak);
+}
+
+.fill-badge--danger {
+    background: var(--feedback-background-danger-weak);
+}
+
+.fill-badge--warning {
+    background: var(--feedback-background-warning-weak);
+}
+
+.fill-badge--informative {
+    background: var(--feedback-background-informative-weak);
+}
+
+.outline-badge {
+    border-style: solid;
+    border-width: var(--stroke-xxs);
+}
+
+.outline-badge--neutral {
+    border-color: var(--feedback-border-enabled-weak);
+}
+
+.outline-badge--success {
+    border-color: var(--feedback-border-success-strong);
+}
+
+.outline-badge--danger {
+    border-color: var(--feedback-border-danger-strong);
+}
+
+.outline-badge--warning {
+    border-color: var(--feedback-border-warning-weak);
+}
+
+.outline-badge--informative {
+    border-color: var(--feedback-border-informative-strong);
+}
+
+.plain-badge {
+    background: var(--feedback-background-enabled-weak);
+}
+
+.plain-badge--success > .badge__label {
+    color: var(--success-text-strong);
+}
+
+.plain-badge--danger > .badge__label {
+    color: var(--danger-text-strong);
+}
+
+.plain-badge--informative > .badge__label {
+    color: var(--informative-text-strong);
+}
+
+.badge--disabled {
+    > .badge__label {
+        color: var(--disabled-text-weak);
+    }
+
+    > .badge__icon {
+        color: var(--disabled-icon-weak);
+    }
+
+    &.outline-badge {
+        border-color: var(--disabled-border-strong);
+    }
+
+    &.fill-badge {
+        background: var(--disabled-background-weak);
+    }
+}

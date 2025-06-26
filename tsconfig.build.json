@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "allowJs": false,
+    "declaration": true,
+    "declarationDir": "dist/dts",
+    "outDir": "dist",
+    "removeComments": false
+  },
+  "include": [
+    "global.d.ts",
+    "src/index.ts"
+  ]
+}

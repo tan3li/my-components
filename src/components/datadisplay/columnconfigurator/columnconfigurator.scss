@@ -1,0 +1,39 @@
+@use '../../../styles/mixins.scss';
+
+.column-configurator-popover {
+    width: 288px;
+}
+
+.column-configurator-dialog-content {
+    display: flex;
+    flex-direction: column;
+    max-height: inherit;
+    padding: var(--space-xxs) var(--space-none);
+}
+
+.column-configurator-dialog__header {
+    background: var(--menu-background-enabled-strong);
+    color: var(--menu-text-enabled-weak);
+    padding: var(--space-xxs) var(--space-sm);
+}
+
+.column-configurator-dialog__body {
+    overflow: hidden auto;
+}
+
+.column-item {
+    align-items: center;
+    background: var(--data-background-container-enabled);
+    border-bottom: 1px solid var(--data-border-enabled-weak);
+    display: flex;
+    gap: var(--space-xs);
+    padding: var(--space-xs) var(--space-sm);
+
+    &:hover {
+        background: var(--data-background-cell-hover-weak);
+    }
+}
+
+.column-item__label {
+    color: var(--data-text-enabled-weak);
+}

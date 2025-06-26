@@ -1,0 +1,68 @@
+import {Meta} from '@storybook/addon-docs/blocks';
+import {ColorTokenList} from '../doccomponents/colortokenlist/colortokenlist.tsx';
+import {lightTokens} from '@visma-severa/severa-design-tokens';
+
+<Meta title="Foundations/Variant tokens" />
+
+<ColorTokenList
+    title="Accent tokens"
+    tokens={Object.fromEntries(
+        Object.entries(lightTokens.color).filter(([key]) =>
+            new RegExp(`^accent(Text|Icon|Border|Background)([a-z,A-z])*$`).test(key)
+        )
+    )}
+/>
+
+<ColorTokenList
+    title="Danger tokens"
+    tokens={Object.fromEntries(
+        Object.entries(lightTokens.color).filter(([key]) =>
+            new RegExp(`^danger(Text|Icon|Border|Background)([a-z,A-z])*$`).test(key)
+        )
+    )}
+/>
+
+<ColorTokenList
+    title="Disabled tokens"
+    tokens={Object.fromEntries(
+        Object.entries(lightTokens.color).filter(([key]) =>
+            new RegExp(`^disabled(Text|Icon|Border|Background)([a-z,A-z])*$`).test(key)
+        )
+    )}
+/>
+
+<ColorTokenList
+    title="Informative tokens"
+    tokens={Object.fromEntries(
+        Object.entries(lightTokens.color).filter(([key]) =>
+            new RegExp(`^informative(Text|Icon|Border|Background)([a-z,A-z])*$`).test(key)
+        )
+    )}
+/>
+
+<ColorTokenList
+    title="Neutral tokens"
+    tokens={Object.fromEntries(
+        Object.entries(lightTokens.color).filter(([key]) =>
+            new RegExp(`^neutral(Text|Icon|Border|Background)([a-z,A-z])*$`).test(key)
+        )
+    )}
+/>
+
+<ColorTokenList
+    title="Success tokens"
+    tokens={Object.fromEntries(
+        Object.entries(lightTokens.color).filter(([key]) =>
+            new RegExp(`^success(Text|Icon|Border|Background)([a-z,A-z])*$`).test(key)
+        )
+    )}
+/>
+
+<ColorTokenList
+    title="Warning tokens"
+    tokens={Object.fromEntries(
+        Object.entries(lightTokens.color).filter(([key]) =>
+            new RegExp(`^warning(Text|Icon|Border|Background)([a-z,A-z])*$`).test(key)
+        )
+    )}
+/>

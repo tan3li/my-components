@@ -1,0 +1,72 @@
+import {Meta} from '@storybook/addon-docs/blocks';
+import {iconNames} from '../../components/media/icon/icons.ts';
+import {IconGallery} from '../doccomponents/icongallery/icongallery.js';
+import {BodyText, EmptyState, SearchField} from '../../components/index.js';
+import {Size} from '../../constants/index.js';
+import {useFilter} from 'react-aria';
+import {useCallback, useMemo, useState} from 'react';
+import {debounce} from '../../utils/debounce.js';
+import {iconMetadata} from '../doccomponents/icongallery/iconmetadata.js';
+
+<Meta title="Assets/Icons" />
+
+# Icons
+
+<div className="sb-unstyled">
+    {(() => {
+        const allIconNames = useMemo(() => Object.keys(iconNames), []);
+        const {contains} = useFilter({sensitivity: 'base'});
+        const [searchText, setSearchText] = useState('');
+        const onSearch = useCallback(debounce(setSearchText, 300), []);
+        const filteredIconNames = useMemo(
+            () => {
+                if (!searchText) {
+                    return allIconNames;
+                }
+
+                return allIconNames.filter((iconName) => {
+                    if (contains(iconName, searchText)) {
+                        return true;
+                    }
+                    const keywords = iconMetadata[iconName]?.keywords;
+
+                    if (keywords) {
+                        for (const keyword of keywords) {
+                            if (contains(keyword, searchText)) {
+                                return true;
+                            }
+                        }
+                    }
+
+                    return false;
+                }, searchText)
+            },
+            [searchText]
+        );
+
+        return (
+            <div
+                style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '2rem',
+                    marginTop: '2rem',
+                    color: 'var(--neutral-text-strong)'
+                }}>
+                <BodyText size={Size.md}>Total count: {allIconNames.length}</BodyText>
+                <SearchField
+                    aria-label="Search"
+                    onChange={onSearch}
+                    placeholder="Search icons by name or keyword"
+                />
+                {filteredIconNames.length === 0 ?
+                    <EmptyState
+                        bodyText="Try a different search term or clear your current search to see all icons"
+                        title="No icons found"
+                    />
+                :   <IconGallery iconNames={filteredIconNames} />}
+            </div>
+        );
+    })()}
+
+</div>

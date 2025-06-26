@@ -1,0 +1,127 @@
+@use '../../../styles/variables.scss';
+
+@keyframes drawer-fade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes drawer-slide {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+.drawer-overlay {
+    position: fixed;
+    z-index: variables.$drawer-z-index;
+}
+
+.drawer-overlay--full-overlay {
+    background-color: color-mix(in srgb, var(--neutral-background-scrim) 50%, transparent);
+    height: 100vh;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+}
+
+.drawer {
+    background-color: var(--feedback-background-enabled-weak);
+    box-shadow: var(--elevation-3xl);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-height: 100vh;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+
+.drawer-overlay--animated {
+    &[data-entering] {
+        animation: drawer-fade 350ms;
+    }
+
+    &[data-exiting] {
+        animation: drawer-fade 350ms reverse ease-in-out;
+    }
+
+    > .drawer {
+        &[data-entering] {
+            animation: drawer-slide 350ms ease-in-out;
+        }
+
+        &[data-exiting] {
+            animation: drawer-slide 350ms reverse ease-in-out;
+        }
+    }
+}
+
+.drawer--medium {
+    width: 35vw;
+}
+
+.drawer--wide {
+    width: 100vw;
+
+    @media (min-width: variables.$breakpoint-lg) {
+        width: 45vw;
+    }
+}
+
+.drawer__dialog {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    outline: none;
+    overflow: hidden;
+}
+
+.drawer__header--standard {
+    background: var(--feedback-background-enabled-weak);
+}
+
+.drawer__header--emphasized {
+    background: var(--feedback-background-neutral-weak);
+}
+
+.drawer__header,
+.drawer__footer {
+    padding: var(--space-md) var(--space-xl);
+}
+
+.drawer__dialog--scroll-top,
+.drawer__dialog--scroll-middle {
+    > .drawer__footer {
+        border-top: 1px solid var(--feedback-border-enabled-weak);
+        box-shadow: 0 0 4px 0 rgb(0 0 0 / 0.2);
+        z-index: 1; // fix for box-shadow scroll bug on Chrome
+    }
+}
+
+.drawer__dialog--scroll-bottom,
+.drawer__dialog--scroll-middle {
+    > .drawer__header {
+        border-bottom: 1px solid var(--feedback-border-enabled-weak);
+        box-shadow: 0 0 4px 0 rgb(0 0 0 / 0.2);
+        z-index: 1;
+    }
+}
+
+.drawer__body {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    gap: var(--space-md);
+    overflow: hidden auto;
+    padding: var(--space-sm) var(--space-xl);
+}

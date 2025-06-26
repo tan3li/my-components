@@ -1,0 +1,91 @@
+.menu-popover[data-trigger='SubmenuTrigger'][data-placement='right'] {
+    margin-left: -5px;
+}
+
+.menu-popover[data-trigger='SubmenuTrigger'][data-placement='left'] {
+    margin-right: -5px;
+}
+
+.menu-popover__content {
+    background: var(--menu-background-enabled-weak);
+    border-radius: var(--radius-md);
+    box-shadow: var(--elevation-3xl);
+    max-height: inherit;
+    overflow: hidden auto;
+    padding: var(--space-xxs) var(--space-none);
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    max-width: 17.5rem;
+    min-width: 7rem;
+    outline: none;
+}
+
+.menu-group-header {
+    align-items: center;
+    background: var(--menu-background-enabled-weak);
+    color: var(--menu-text-enabled-weak);
+    display: flex;
+    gap: var(--space-xxs);
+    padding: var(--space-sm) var(--space-sm) var(--space-3xs) var(--space-sm);
+    position: relative;
+}
+
+.menu-header {
+    align-items: center;
+    background: var(--menu-background-enabled-strong);
+    color: var(--menu-text-enabled-weak);
+    display: flex;
+    padding: var(--space-xxs) var(--space-sm);
+    gap: var(--space-xxs);
+}
+
+.menu-footer {
+    display: flex;
+    gap: var(--space-sm);
+    padding: var(--space-sm);
+}
+
+.menu-link-button.link-button {
+    color: var(--menu-text-enabled-weak);
+
+    .icon {
+        color: var(--menu-icon-enabled-weak);
+        height: var(--space-lg);
+        width: var(--space-lg);
+    }
+}
+
+.menu-item {
+    outline: none;
+    text-decoration: none;
+}
+
+.menu-item:not(.menu-item--back)[data-selection-mode='single'],
+.menu-item:not(.menu-item--back)[data-selection-mode='multiple'] {
+    .action-item__left-icon {
+        visibility: hidden;
+    }
+
+    &[data-selected] {
+        .action-item__left-icon {
+            visibility: visible;
+        }
+    }
+}
+
+.menu-item--back .action-item {
+    gap: var(--space-xxs);
+    padding: var(--space-xxs) var(--space-sm);
+
+    &:not([data-hovered]) {
+        background: var(--menu-background-enabled-strong);
+    }
+
+    .action-item__left-icon {
+        height: var(--space-lg);
+        width: var(--space-lg);
+    }
+}

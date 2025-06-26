@@ -1,0 +1,250 @@
+.checkbox {
+    color: var(--input-text-enabled-weak);
+    cursor: pointer;
+    display: inline-flex;
+    position: relative;
+}
+
+.checkbox--reversed {
+    display: block;
+}
+
+/* React Aria adds input element as hidden wrapped inside span and this fixes it positioning when label positioned start */
+.checkbox--reversed > span {
+    right: 0;
+
+    > input {
+        float: right;
+    }
+}
+
+.checkbox__box-and-label {
+    display: inline-grid;
+}
+
+.checkbox__label-and-box {
+    display: grid;
+}
+
+.checkbox__box-and-label,
+.checkbox__label-and-box {
+    align-items: center;
+    column-gap: var(--space-xs);
+    grid-template-columns: auto 1fr;
+}
+
+.checkbox__box {
+    align-items: center;
+    background-color: transparent;
+    color: var(--input-icon-selected);
+    display: inline-flex;
+    justify-content: center;
+    justify-self: end;
+    outline: var(--space-3xs) solid var(--input-border-enabled-strong);
+    outline-offset: -2px;
+    position: relative;
+
+    > svg {
+        visibility: hidden;
+    }
+}
+
+.checkbox__box--sm {
+    border-radius: var(--radius-xs);
+}
+
+.checkbox__box--md {
+    border-radius: var(--radius-sm);
+}
+
+.checkbox__label {
+    color: var(--input-text-enabled-strong);
+}
+
+/* SELECTED & INDETERMINATE STATES */
+.checkbox[data-selected] .checkbox__box,
+.checkbox[data-indeterminate] .checkbox__box {
+    background-color: var(--input-background-selected-enabled-strong);
+    outline: none;
+
+    > svg {
+        visibility: visible;
+    }
+}
+
+/* HOVER STATE */
+.checkbox[data-hovered] .checkbox__box {
+    background-color: var(--input-background-enabled);
+    outline-color: var(--input-border-hover);
+}
+
+.checkbox[data-hovered][data-selected] .checkbox__box,
+.checkbox[data-hovered][data-indeterminate] .checkbox__box {
+    background-color: var(--input-background-selected-hover-strong);
+    outline: none;
+}
+
+/* PRESSED STATE */
+.checkbox[data-pressed] .checkbox__box {
+    background-color: var(--input-background-enabled);
+    outline-color: var(--input-border-hover);
+
+    &:before {
+        content: '';
+        height: 100%;
+        opacity: 0.5;
+        outline: 3px solid var(--input-border-pressed);
+        outline-offset: 0;
+        position: absolute;
+        width: 100%;
+    }
+
+    &.checkbox__box--sm:before {
+        border-radius: var(--radius-xs);
+    }
+
+    &.checkbox__box--md:before {
+        border-radius: var(--radius-sm);
+    }
+}
+
+.checkbox[data-pressed][data-selected] .checkbox__box,
+.checkbox[data-pressed][data-indeterminate] .checkbox__box {
+    background-color: var(--input-background-selected-hover-strong);
+    outline: none;
+}
+
+/* FOCUSED STATE */
+.checkbox[data-focused]:not([data-pressed]) .checkbox__box {
+    background-color: transparent;
+    outline-color: var(--input-border-enabled-strong);
+
+    &:before {
+        content: '';
+        height: 100%;
+        opacity: 0.5;
+        outline: 3px solid var(--informative-border-focus-ring);
+        outline-offset: 1px;
+        position: absolute;
+        width: 100%;
+    }
+
+    &.checkbox__box--sm:before {
+        border-radius: var(--radius-xs);
+    }
+
+    &.checkbox__box--md:before {
+        border-radius: var(--radius-sm);
+    }
+}
+
+.checkbox[data-focused]:not([data-pressed])[data-selected] .checkbox__box,
+.checkbox[data-focused]:not([data-pressed])[data-indeterminate] .checkbox__box {
+    background-color: var(--input-background-selected-enabled-strong);
+    outline: none;
+}
+
+/* ERROR STATE */
+.checkbox[data-invalid] .checkbox__box {
+    background-color: var(--input-background-error-weak);
+    outline-color: var(--input-border-error);
+}
+
+.checkbox[data-invalid][data-selected] .checkbox__box,
+.checkbox[data-invalid][data-indeterminate] .checkbox__box {
+    background-color: var(--input-background-error-strong);
+    outline: none;
+}
+
+.checkbox[data-invalid][data-hovered] .checkbox__box {
+    background-color: var(--input-background-error-weak);
+    outline-color: var(--danger-800);
+}
+
+.checkbox[data-invalid][data-hovered][data-selected] .checkbox__box,
+.checkbox[data-invalid][data-hovered][data-indeterminate] .checkbox__box {
+    background-color: var(--danger-800);
+    outline: none;
+}
+
+.checkbox[data-invalid][data-pressed] .checkbox__box {
+    background-color: var(--input-background-enabled);
+    outline-color: var(--danger-800);
+
+    &:before {
+        outline-color: var(--danger-200);
+    }
+}
+
+.checkbox[data-invalid][data-pressed][data-selected] .checkbox__box,
+.checkbox[data-invalid][data-pressed][data-indeterminate] .checkbox__box {
+    background-color: var(--danger-800);
+    outline: none;
+
+    &:before {
+        outline-color: var(--danger-200);
+    }
+}
+
+.checkbox[data-invalid][data-focused]:not([data-pressed]) .checkbox__box {
+    background-color: var(--input-background-error-weak);
+    outline-color: var(--input-border-error);
+}
+
+.checkbox[data-invalid][data-focused]:not([data-pressed])[data-selected] .checkbox__box,
+.checkbox[data-invalid][data-focused]:not([data-pressed])[data-indeterminate] .checkbox__box {
+    background-color: var(--input-background-error-strong);
+    outline: none;
+}
+
+/* DISABLED STATE */
+.checkbox[data-disabled] .checkbox__box,
+.checkbox[data-disabled][data-hovered] .checkbox__box,
+.checkbox[data-disabled][data-pressed] .checkbox__box,
+.checkbox[data-disabled][data-focused] .checkbox__box,
+.checkbox[data-disabled][data-invalid] .checkbox__box,
+.checkbox[data-disabled][data-invalid][data-hovered] .checkbox__box,
+.checkbox[data-disabled][data-invalid][data-pressed] .checkbox__box,
+.checkbox[data-disabled][data-invalid][data-focused] .checkbox__box {
+    background-color: var(--input-background-disabled-weak);
+    outline-color: var(--input-border-disabled);
+
+    &:before {
+        outline: none;
+    }
+}
+
+.checkbox[data-disabled][data-selected] .checkbox__box,
+.checkbox[data-disabled][data-selected][data-hovered] .checkbox__box,
+.checkbox[data-disabled][data-selected][data-pressed] .checkbox__box,
+.checkbox[data-disabled][data-selected][data-focused] .checkbox__box,
+.checkbox[data-disabled][data-indeterminate] .checkbox__box,
+.checkbox[data-disabled][data-indeterminate][data-hovered] .checkbox__box,
+.checkbox[data-disabled][data-indeterminate][data-pressed] .checkbox__box,
+.checkbox[data-disabled][data-indeterminate][data-focused] .checkbox__box,
+.checkbox[data-disabled][data-invalid][data-selected] .checkbox__box,
+.checkbox[data-disabled][data-invalid][data-selected][data-hovered] .checkbox__box,
+.checkbox[data-disabled][data-invalid][data-selected][data-pressed] .checkbox__box,
+.checkbox[data-disabled][data-invalid][data-selected][data-focused] .checkbox__box,
+.checkbox[data-disabled][data-invalid][data-indeterminate] .checkbox__box,
+.checkbox[data-disabled][data-invalid][data-indeterminate][data-hovered] .checkbox__box,
+.checkbox[data-disabled][data-invalid][data-indeterminate][data-pressed] .checkbox__box,
+.checkbox[data-disabled][data-invalid][data-indeterminate][data-focused] .checkbox__box {
+    background-color: var(--input-background-disabled-strong);
+    outline: none;
+
+    &:before {
+        outline: none;
+    }
+}
+
+.checkbox[data-invalid],
+.checkbox[data-invalid] .checkbox__label {
+    color: var(--input-text-error);
+}
+
+.checkbox[data-disabled],
+.checkbox[data-disabled] .checkbox__label {
+    color: var(--input-text-disabled);
+    cursor: default;
+}

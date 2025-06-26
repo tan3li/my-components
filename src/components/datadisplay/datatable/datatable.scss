@@ -1,0 +1,304 @@
+@use '../../../styles/mixins.scss';
+@use '../../../styles/variables.scss';
+
+.data-table-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.data-table-before {
+    align-items: center;
+    display: flex;
+    gap: var(--space-md);
+    margin-bottom: var(--space-sm);
+}
+
+.data-table-before__right {
+    align-items: center;
+    display: flex;
+    gap: var(--space-md);
+    margin-left: auto;
+}
+
+.data-table__bottom-pagination {
+    align-self: center;
+    margin-top: var(--space-sm);
+}
+
+.data-table-sticky-container {
+    overflow: hidden;
+    position: sticky;
+    top: 0;
+    z-index: variables.$sticky-header-z-index;
+    width: 100%;
+
+    .data-table__body,
+    .data-table__footer {
+        opacity: 0;
+        visibility: collapse;
+    }
+}
+
+.data-table-scrollable-container {
+    outline: none;
+    overflow: auto hidden;
+    width: 100%;
+
+    .data-table__header {
+        opacity: 0;
+        visibility: collapse;
+    }
+}
+
+.data-table {
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: clip; // remove redundant scrollbars for Firefox
+    width: 100%;
+}
+
+.data-table__header {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.data-table__row {
+    > .data-table__cell {
+        background: var(--data-background-container-enabled) padding-box;
+        border-bottom: 1px solid var(--data-border-enabled-weak);
+    }
+
+    &:hover {
+        &:not(.data-table__row--disabled) > .data-table__cell {
+            background: var(--data-background-cell-hover-weak) padding-box;
+        }
+
+        .data-table__action-button {
+            opacity: 1;
+        }
+    }
+}
+
+.data-table__row.data-table__row--selected {
+    > .data-table__cell {
+        background: var(--data-background-selected-enabled-weak) padding-box;
+    }
+
+    &:hover > .data-table__cell {
+        background: var(--data-background-selected-hover-weak) padding-box;
+    }
+}
+
+.data-table__header-row {
+    background: var(--data-background-container-enabled);
+
+    > .data-table__header-cell {
+        border-bottom: 1px solid var(--data-border-enabled-weak);
+    }
+}
+
+.data-table__header-row--first {
+    background: var(--data-background-enabled-weak);
+
+    &.data-table__header-row--last > .data-table__header-cell {
+        border-bottom: none;
+    }
+}
+
+.data-table__footer-row {
+    background: var(--data-background-enabled-weak);
+}
+
+.data-table__body:has(+ .data-table__footer) .data-table__row:last-child > .data-table__cell {
+    border-bottom: 0;
+}
+
+.data-table__cell-content {
+    align-items: center;
+    display: flex;
+}
+
+.data-table__cell-content--align-start {
+    justify-content: flex-start;
+    text-align: left;
+}
+
+.data-table__cell-content--align-center {
+    justify-content: center;
+    text-align: center;
+}
+
+.data-table__cell-content--align-end {
+    justify-content: flex-end;
+    text-align: right;
+}
+
+.data-table__cell {
+    height: 3rem;
+}
+
+.data-table__header-cell,
+.data-table__footer-cell {
+    background: inherit;
+    color: var(--data-text-enabled-weak);
+    height: 2rem;
+    white-space: nowrap;
+    user-select: none; // no text painting
+}
+
+.data-table__header-cell,
+.data-table__cell,
+.data-table__footer-cell {
+    cursor: default;
+    padding: var(--space-xs);
+    position: relative;
+}
+
+.data-table__header-cell--editable-start {
+    padding-left: var(--space-md);
+}
+
+.data-table__header-cell--editable-end {
+    padding-right: var(--space-md);
+}
+
+.data-table__header-cell--sortable {
+    cursor: pointer;
+
+    &:hover {
+        color: var(--data-text-enabled-strong);
+        background: var(--data-background-cell-hover-strong);
+    }
+
+    &:focus-visible {
+        outline: none;
+
+        @include mixins.focus-ring(3px, -3px, var(--radius-xxs));
+    }
+}
+
+.data-table__sort-icon {
+    color: var(--data-icon-enabled-weak);
+    margin: -2px 0; // to prevent icon from increasing header cell height
+}
+
+.data-table__text-cell {
+    color: var(--data-text-enabled-strong);
+}
+
+.data-table__text-cell--disabled {
+    color: var(--data-text-disabled);
+}
+
+.data-table__indent-wrapper {
+    align-items: center;
+    display: flex;
+    gap: var(--space-xxs);
+}
+
+.data-table__expander {
+    color: var(--data-icon-enabled-weak);
+    cursor: pointer;
+    display: inline-flex;
+    position: relative;
+
+    &:focus-visible {
+        outline: none;
+
+        @include mixins.focus-ring(3px, -3px, var(--radius-xxs));
+    }
+}
+
+.data-table__expander--hidden {
+    visibility: hidden;
+}
+
+.data-table__expander--loading:focus-visible:before {
+    display: none;
+}
+
+.data-table__action-button-cell {
+    align-items: center;
+    display: flex;
+    gap: var(--space-xs);
+    justify-content: space-between;
+    width: 100%;
+}
+
+.data-table__action-button-cell-content {
+    width: 100%;
+}
+
+.data-table__action-button {
+    opacity: 0;
+
+    &[data-focused] {
+        opacity: 1;
+    }
+}
+
+.data-table__action-button--visible {
+    opacity: 1;
+}
+
+.data-table-toolbar {
+    align-items: center;
+    display: flex;
+    gap: var(--space-md);
+}
+
+.data-table-toolbar__selected-text {
+    color: var(--data-text-enabled-weak);
+    min-width: 6rem;
+}
+
+.data-table__row-drag-overlay {
+    background: var(--data-background-cell-hover-weak);
+    border-bottom: 1px solid var(--data-border-enabled-weak);
+    border-collapse: separate;
+    border-spacing: 0;
+    box-shadow: var(--elevation-lg);
+
+    .data-table__row > .data-table__cell {
+        background: var(--data-background-cell-hover-weak);
+        border-bottom: none;
+    }
+}
+
+.data-table__row--ghost .data-table__cell-content {
+    opacity: var(--opacity-15);
+}
+
+@mixin drop-line($pos) {
+    &:#{$pos} {
+        background: var(--data-border-enabled-strong);
+        content: '';
+        height: 2px;
+        left: 0;
+        position: absolute;
+        width: 100%;
+
+        @if $pos == 'before' {
+            top: 0;
+        } @else if $pos == 'after' {
+            bottom: 0;
+        }
+    }
+}
+
+.data-table__row--drop-before > .data-table__cell {
+    @include drop-line('before');
+}
+
+.data-table__row--drop-after > .data-table__cell {
+    @include drop-line('after');
+}
+
+.data-table__row--drop-inside > .data-table__cell {
+    background: var(--data-background-cell-enabled-strong);
+
+    @include drop-line('before');
+    @include drop-line('after');
+}

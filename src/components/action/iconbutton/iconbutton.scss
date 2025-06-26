@@ -1,0 +1,82 @@
+.icon-button {
+    align-items: center;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    gap: var(--space-xxs);
+    justify-content: center;
+    min-width: fit-content;
+    position: relative;
+
+    &[data-pressed]:before {
+        border-width: 4px;
+    }
+
+    &[disabled] {
+        background-color: var(--disabled-background-weak);
+    }
+}
+
+.icon-button--lg {
+    border-radius: var(--radius-xl);
+    padding: var(--space-xs);
+
+    &[data-pressed],
+    &[data-focused] {
+        &:before {
+            // We need to add the space-xxs to the radius to make the border with 2px padding to match to the button
+            border-radius: calc(var(--radius-xl) + var(--space-xxs));
+        }
+    }
+}
+
+.icon-button--md {
+    border-radius: var(--radius-lg);
+    padding: var(--space-xxs);
+
+    &[data-pressed],
+    &[data-focused] {
+        &:before {
+            // We need to add the space-xxs to the radius to make the border with 2px padding to match to the button
+            border-radius: calc(var(--radius-lg) + var(--space-xxs));
+        }
+    }
+}
+
+.icon-button--sm {
+    border-radius: var(--radius-md);
+    padding: var(--space-xxs);
+
+    &[data-pressed],
+    &[data-focused] {
+        &:before {
+            // We need to add the space-xxs to the radius to make the border with 2px padding to match to the button
+            border-radius: calc(var(--radius-md) + var(--space-xxs));
+        }
+    }
+}
+
+.icon-button__icon {
+    &:first-child {
+        margin-right: var(--space-none);
+    }
+
+    &:last-child {
+        margin-left: var(--space-none);
+    }
+}
+
+.icon-button__icon--lg {
+    height: var(--space-xl);
+    width: var(--space-xl);
+}
+
+.icon-button__icon--md {
+    height: var(--space-lg);
+    width: var(--space-lg);
+}
+
+.icon-button__icon--sm {
+    height: var(--space-md);
+    width: var(--space-md);
+}

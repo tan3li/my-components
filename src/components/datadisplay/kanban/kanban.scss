@@ -1,0 +1,193 @@
+.kanban {
+    display: flex;
+    gap: var(--space-md);
+    margin: 0;
+    padding: var(--space-sm) var(--space-xs);
+    outline: none;
+    overflow: auto hidden;
+}
+
+.kanban-column {
+    background: var(--neutral-background-container-strong);
+    border: 1px solid var(--data-border-enabled-weak);
+    border-radius: var(--radius-sm);
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    list-style: none;
+    max-height: 100%;
+    max-width: 550px;
+    min-width: 240px;
+    margin: 0;
+    padding: 0;
+    transition-property: min-width, max-width, flex;
+    transition-duration: 0.2s;
+    transition-timing-function: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.kanban__new-column {
+    align-items: center;
+    border: 1px dashed var(--data-border-enabled-weak);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    min-width: fit-content;
+    padding: var(--space-sm) var(--space-md);
+
+    &:hover {
+        background: var(--data-background-enabled-weak);
+        border-color: var(--data-border-enabled-strong);
+    }
+}
+
+.kanban-column--overlay {
+    background: var(--data-background-enabled-weak);
+    border-color: var(--data-border-enabled-strong);
+    box-shadow: var(--elevation-xl);
+    height: 100%;
+}
+
+.kanban-column--dragging {
+    background: var(--data-background-selected-enabled-weak);
+    border-color: transparent;
+
+    .kanban-column__header,
+    .kanban-column__body,
+    .kanban-column__footer {
+        opacity: 0;
+    }
+}
+
+.kanban-column--collapsed {
+    align-items: flex-start;
+    flex: 0;
+    max-height: 100%;
+    max-width: 40px;
+    min-width: 40px;
+    width: 40px;
+
+    .kanban-column__header {
+        flex-shrink: 1;
+        height: 100%;
+        max-width: 100%;
+        overflow: visible;
+        padding: var(--space-xs);
+    }
+
+    .kanban-column__header,
+    .kanban-column__header-start,
+    .kanban-column__title-wrapper {
+        flex-direction: column;
+    }
+
+    .kanban-column__header-end {
+        margin-left: 0;
+        margin-top: auto;
+    }
+
+    .kanban-column__title {
+        min-width: 1.4rem; // required for Firefox
+        writing-mode: vertical-rl;
+    }
+}
+
+.kanban-column__header {
+    align-items: center;
+    cursor: default;
+    display: flex;
+    flex-shrink: 0;
+    gap: var(--space-xs);
+    min-height: 0;
+    overflow: hidden;
+    padding: var(--space-xs) var(--space-sm);
+}
+
+.kanban-column__header-start {
+    align-items: center;
+    display: flex;
+    gap: var(--space-xxs);
+    min-height: 0;
+    min-width: 0;
+}
+
+.kanban-column__header-end {
+    align-items: center;
+    display: flex;
+    gap: var(--space-xxs);
+    margin-left: auto;
+}
+
+.kanban-column__title-wrapper {
+    align-items: center;
+    display: flex;
+    gap: var(--space-3xs);
+    min-height: 0;
+    min-width: 0;
+}
+
+.kanban-column__title-texts {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    min-width: 0;
+}
+
+.kanban-column__title-trigger {
+    display: flex;
+    min-height: 0;
+}
+
+.kanban-column__title {
+    color: var(--data-text-enabled-strong);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.kanban-colum__total {
+    display: flex;
+}
+
+.kanban-colum__total,
+.kanban-column__description {
+    color: var(--data-text-enabled-weak);
+}
+
+.kanban-column__body {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    gap: var(--space-sm);
+    list-style: none;
+    margin: 0;
+    min-height: 40px;
+    outline: none;
+    overflow: hidden auto;
+    padding: var(--space-xs);
+}
+
+.kanban-column__body--droppable-over {
+    background: var(--data-background-cell-hover-strong);
+    border: 1px dashed var(--data-border-enabled-strong);
+    overflow: hidden;
+
+    > div[role='listitem'],
+    .kanban-column__show-more-button {
+        opacity: 0;
+    }
+}
+
+.kanban-column__footer {
+    align-items: center;
+    display: flex;
+    flex-shrink: 0;
+    gap: var(--space-xs);
+    padding: var(--space-xs) var(--space-md);
+}
+
+.kanban-column__show-more-button {
+    align-self: flex-start;
+}

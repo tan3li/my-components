@@ -1,0 +1,62 @@
+@use '../../../styles/variables.scss';
+
+$breakpoint-map: (
+    'xs': variables.$breakpoint-xs,
+    'sm': variables.$breakpoint-sm,
+    'md': variables.$breakpoint-md,
+    'lg': variables.$breakpoint-lg,
+    'xl': variables.$breakpoint-xl,
+    '2xl': variables.$breakpoint-2xl,
+    '3xl': variables.$breakpoint-3xl,
+    '4xl': variables.$breakpoint-4xl,
+    '5xl': variables.$breakpoint-5xl
+);
+
+/* LAYOUT GRID */
+.layout-grid {
+    display: grid;
+    gap: var(--layout-grid-row-gap, normal) var(--layout-grid-column-gap, normal);
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+
+    @media (min-width: variables.$breakpoint-sm) {
+        grid-template-columns: repeat(8, 1fr);
+    }
+
+    @media (min-width: variables.$breakpoint-lg) {
+        grid-template-columns: repeat(12, 1fr);
+    }
+}
+
+@each $suffix, $breakpoint in $breakpoint-map {
+    .layout-grid--row-gap-#{$suffix} {
+        @media (min-width: $breakpoint) {
+            row-gap: var(--layout-grid-row-gap-#{$suffix});
+        }
+    }
+
+    .layout-grid--column-gap-#{$suffix} {
+        @media (min-width: $breakpoint) {
+            column-gap: var(--layout-grid-column-gap-#{$suffix});
+        }
+    }
+}
+
+/* LAYOUT GRID ITEM */
+.layout-grid-item {
+    grid-column: var(--layout-grid-item-start, auto) / span var(--layout-grid-item-span, 1);
+}
+
+@each $suffix, $breakpoint in $breakpoint-map {
+    .layout-grid-item--span-#{$suffix} {
+        @media (min-width: $breakpoint) {
+            grid-column-end: span var(--layout-grid-item-span-#{$suffix});
+        }
+    }
+
+    .layout-grid-item--start-#{$suffix} {
+        @media (min-width: $breakpoint) {
+            grid-column-start: var(--layout-grid-item-start-#{$suffix});
+        }
+    }
+}

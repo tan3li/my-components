@@ -1,0 +1,123 @@
+/* STEP ITEM */
+.step-item {
+    display: inline-flex;
+    padding: var(--space-xxs);
+    gap: var(--space-xxs) var(--space-xs);
+}
+
+.step-item--left-aligned {
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.step-item--center-aligned {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.step-item__title,
+.step-item__support-text {
+    color: var(--nav-text-enabled-weak);
+}
+
+.step-item--active {
+    .step-item__title {
+        color: var(--nav-text-enabled-strong);
+    }
+}
+
+.step-item--completed {
+    .step-item__title {
+        color: var(--nav-text-active-strong);
+    }
+}
+
+/* STEP INDICATOR */
+.step-indicator {
+    display: flex;
+    min-width: var(--space-xl);
+    width: var(--space-xl);
+    height: var(--space-xl);
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--radius-full);
+    border: 2px solid var(--nav-border-enabled-weak);
+    color: var(--nav-text-enabled-weak);
+    background: var(--nav-background-enabled-weak);
+}
+
+.step-indicator--active {
+    color: var(--nav-text-active-strong);
+    border-color: var(--nav-border-active-strong);
+}
+
+.step-indicator--disabled {
+    color: var(--nav-text-disabled);
+    border-color: var(--nav-border-disabled);
+}
+
+.step-indicator--completed {
+    color: var(--nav-icon-active-strong-inverted);
+    background: var(--nav-background-active-strong);
+    outline: none;
+    border: none;
+}
+
+/* STEP PROGRESS BAR */
+.step-progress-bar__bar {
+    background: var(--nav-border-enabled-weak);
+}
+
+.step-progress-bar__fill {
+    background: var(--nav-border-active-strong);
+}
+
+.step-progress-bar {
+    flex: 1 1 auto;
+}
+
+.step-progress-bar--horizontal {
+    > .step-progress-bar__bar {
+        height: var(--space-3xs);
+
+        > .step-progress-bar__fill {
+            height: 100%;
+            transition: width 0.1s linear;
+        }
+    }
+}
+
+.step-progress-bar--vertical {
+    display: flex;
+    justify-content: center;
+    width: var(--space-xl);
+    margin-left: var(--space-xxs);
+
+    > .step-progress-bar__bar {
+        height: 100%;
+        width: var(--space-3xs);
+
+        > .step-progress-bar__fill {
+            width: 100%;
+            transition: height 0.1s linear;
+        }
+    }
+}
+
+/* STEPS */
+.steps {
+    display: flex;
+}
+
+.steps--horizontal {
+    align-items: center;
+    flex: 1;
+    flex-direction: row;
+}
+
+.steps--vertical {
+    flex-direction: column;
+    height: 100%;
+}

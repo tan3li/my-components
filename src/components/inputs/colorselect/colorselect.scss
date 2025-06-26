@@ -1,0 +1,11 @@
+.color-select-option__color-swatch {
+    border-radius: var(--radius-xs);
+    flex-shrink: 0;
+    height: 20px;
+    width: 20px;
+}
+
+.select__content--xs .color-select-option__color-swatch {
+    height: 18px;
+    width: 18px;
+}

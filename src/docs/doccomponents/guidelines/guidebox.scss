@@ -1,0 +1,36 @@
+.guide-box {
+    background: var(--neutral-background-container-strong);
+    border-radius: var(--radius-xxs);
+    border-top: 6px solid;
+    box-shadow: var(--elevation-sm);
+    color: var(--neutral-text-strong);
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: var(--space-md);
+}
+
+.guide-box__label {
+    align-items: center;
+    display: flex;
+    gap: var(--space-xxs);
+    margin-bottom: var(--space-md);
+}
+
+.guide-box--success {
+    border-color: var(--success-border-strong);
+
+    li::marker,
+    .guide-box__icon {
+        color: var(--success-icon-strong);
+    }
+}
+
+.guide-box--danger {
+    border-color: var(--danger-border-strong);
+
+    li::marker,
+    .guide-box__icon {
+        color: var(--danger-icon-strong);
+    }
+}

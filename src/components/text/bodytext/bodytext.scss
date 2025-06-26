@@ -1,0 +1,51 @@
+@use '../../../styles/mixins.scss';
+
+p {
+    margin: 0;
+}
+
+.body-text--xs {
+    @include mixins.body-text-xs;
+}
+
+.body-text--sm {
+    @include mixins.body-text-sm;
+}
+
+.body-text--md {
+    @include mixins.body-text-md;
+}
+
+.body-text--lg {
+    @include mixins.body-text-lg;
+}
+
+p + p {
+    &.body-text--xs {
+        margin-top: var(--body-xs-paragraph-spacing);
+    }
+
+    &.body-text--sm {
+        margin-top: var(--body-sm-paragraph-spacing);
+    }
+
+    &.body-text--md {
+        margin-top: var(--body-md-paragraph-spacing);
+    }
+
+    &.body-text--lg {
+        margin-top: var(--body-lg-paragraph-spacing);
+    }
+}
+
+.body-text--align-center {
+    text-align: center;
+}
+
+.body-text--align-start {
+    text-align: left;
+}
+
+.body-text--align-end {
+    text-align: right;
+}

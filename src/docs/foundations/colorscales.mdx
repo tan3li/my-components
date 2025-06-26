@@ -1,0 +1,83 @@
+import {Meta, ColorPalette, ColorItem} from '@storybook/addon-docs/blocks';
+import {coreTokens} from '@visma-severa/severa-design-tokens';
+import {kebabCase, splitSeparateNumbers} from 'change-case';
+
+<Meta title="Foundations/Color scales" />
+
+# Primitive color scales
+
+<ColorPalette>
+    {(() => {
+        const primitiveColors = [
+            'purple',
+            'blueUndertone',
+            'gray',
+            'green',
+            'blue',
+            'orange',
+            'red'
+        ];
+        const colorItems = [];
+        const colorTokens = coreTokens.color;
+
+        for (let i = 0, len = primitiveColors.length; i < len; i++) {
+            const colorName = primitiveColors[i];
+            const colors = Object.fromEntries(Object.entries(colorTokens)
+                .filter(([key]) => new RegExp(`^${colorName}[0-9]+$`).test(key))
+                .map(([token, obj]) => [kebabCase(token, {split: splitSeparateNumbers}), obj.value])
+            );
+            const title = colorName.charAt(0).toUpperCase() + colorName.slice(1);
+
+            colorItems.push(
+                <ColorItem
+                    colors={colors}
+                    key={colorName}
+                    subtitle={`${title} scale`}
+                    title={title}
+                />
+            )
+        }
+
+        return colorItems;
+    })()}
+
+</ColorPalette>
+
+# Color scales
+
+<ColorPalette>
+    {(() => {
+        const colorScaleColors = [
+            'accent',
+            'tonedGray',
+            'desaturated',
+            'success',
+            'informative',
+            'warning',
+            'danger'
+        ];
+        const colorItems = [];
+        const colorTokens = coreTokens.color;
+
+        for (let i = 0, len = colorScaleColors.length; i < len; i++) {
+            const colorName = colorScaleColors[i];
+            const colors = Object.fromEntries(Object.entries(colorTokens)
+                .filter(([key]) => new RegExp(`^${colorName}[0-9]+$`).test(key))
+                .map(([token, obj]) => [kebabCase(token, {split: splitSeparateNumbers}), obj.value])
+            );
+            const title = colorName.charAt(0).toUpperCase() + colorName.slice(1);
+
+            colorItems.push(
+                <ColorItem
+                    colors={colors}
+                    key={colorName}
+                    subtitle={`${title} scale`}
+                    title={title}
+                />
+            )
+        }
+
+        return colorItems;
+    })()}
+
+</ColorPalette>

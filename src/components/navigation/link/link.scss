@@ -1,0 +1,41 @@
+@use '../../../styles/mixins.scss';
+
+.link {
+    background: none;
+    border: none;
+    color: var(--informative-text-strong);
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+    position: relative;
+}
+
+.link--sm {
+    @include mixins.label-sm;
+}
+
+.link--md {
+    @include mixins.label-md;
+}
+
+.link--lg {
+    @include mixins.label-lg;
+}
+
+.link[data-hovered] {
+    text-decoration: underline;
+}
+
+.link[data-focus-visible] {
+    @include mixins.focus-outline(3px, 3px, var(--radius-xxs));
+}
+
+.link:visited:not([data-visited]),
+.link[data-visited='true'] {
+    color: var(--nav-text-active-strong);
+}
+
+.link[data-disabled] {
+    color: var(--nav-text-disabled);
+    cursor: default;
+}

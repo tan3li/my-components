@@ -1,0 +1,108 @@
+@use '../../../styles/mixins.scss';
+
+.calendar {
+    min-width: 20rem;
+    padding: var(--space-xxs) var(--space-xs);
+}
+
+.calendar-header__start {
+    align-items: center;
+    display: flex;
+    gap: var(--space-xs);
+}
+
+.calendar-header__end {
+    align-items: center;
+    display: flex;
+    gap: var(--space-xxs);
+}
+
+.calendar-header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: var(--space-xxs) 0;
+}
+
+.calendar-footer {
+    padding: var(--space-xxs) 0;
+}
+
+.calendar-grid {
+    border-spacing: 0 var(--space-xxs);
+    width: 100%;
+}
+
+.calendar-grid__header-cell,
+.calendar-grid__week-nr-cell,
+.calendar-grid__cell {
+    padding: 0;
+    position: relative;
+}
+
+.calendar-grid__week-nr-cell:before {
+    content: '';
+    background: var(--input-background-action-selected);
+    height: calc(100% + var(--space-xxs) + 1px); // add 1px to ensure row gap is covered in all zoom levels
+    left: 3px;
+    position: absolute;
+    top: 0;
+    width: calc(100% - 6px);
+}
+
+.calendar-grid__row:first-child .calendar-grid__week-nr-cell:before {
+    border-radius: var(--radius-xs) var(--radius-xs) 0 0;
+}
+
+.calendar-grid__row:last-child .calendar-grid__week-nr-cell:before {
+    border-radius: 0 0 var(--radius-xs) var(--radius-xs);
+    height: 100%;
+}
+
+.calendar-grid__row--highlight {
+    background-color: var(--input-background-action-selected);
+
+    .calendar-grid__header-cell,
+    .calendar-grid__week-nr-cell,
+    .calendar-grid__cell {
+        &:first-child {
+            border-radius: var(--radius-xs) 0 0 var(--radius-xs);
+        }
+
+        &:last-child {
+            border-radius: 0 var(--radius-xs) var(--radius-xs) 0;
+        }
+    }
+}
+
+.calendar-grid__cell[data-range-start] {
+    border-radius: var(--radius-xs) 0 0 var(--radius-xs);
+}
+
+.calendar-grid__cell[data-in-range] {
+    background-color: var(--input-background-action-selected);
+}
+
+.calendar-grid__cell[data-range-end] {
+    border-radius: 0 var(--radius-xs) var(--radius-xs) 0;
+}
+
+.calendar-grid__header-cell-content,
+.calendar-grid__week-nr-cell-content {
+    align-items: center;
+    color: var(--input-text-enabled-weak);
+    display: flex;
+    height: 36px;
+    justify-content: center;
+    min-width: 30px;
+    position: relative;
+}
+
+.calendar-grid__cell-content {
+    align-items: center;
+    display: flex;
+    height: 36px;
+    justify-content: center;
+    min-width: 36px;
+    position: relative;
+}
