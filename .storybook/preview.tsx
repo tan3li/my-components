@@ -1,4 +1,4 @@
-import '@visma-severa/severa-design-tokens/dist/index.css';
+import '@tan3li/d-tokens/dist/index.css';
 import 'highcharts/css/highcharts.css';
 import '../src/styles/index.scss';
 import './storybook.scss';
@@ -8,7 +8,7 @@ import {I18nextProvider} from 'react-i18next';
 import {Suspense, useEffect} from 'react';
 import {Preview} from '@storybook/react-webpack5';
 import {I18nProvider, LocaleCode} from '../src/contexts/i18nprovider.js';
-import {lightTokens} from '@visma-severa/severa-design-tokens';
+import {lightTokens} from '@tan3li/d-tokens';
 import DocTemplate from '../src/docs/doctemplate.mdx';
 import {seraTheme} from './seratheme.js';
 

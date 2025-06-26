@@ -1,4 +1,4 @@
-import {coreTokens} from '@visma-severa/severa-design-tokens';
+import {coreTokens} from '@tan3li/d-tokens';
 import {Size} from '../../../constants/index.js';
 import {ChartProps} from './chartprops.js';
 

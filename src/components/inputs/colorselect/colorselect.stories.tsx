@@ -1,7 +1,7 @@
 import {Meta, StoryObj} from '@storybook/react-webpack5';
 import {DATA_ATTRIBUTE_PARAM_KEY} from '../../../tools/dataattributeaddingtool/constants.js';
 import {ColorSelect} from './colorselect.js';
-import {lightTokens} from '@visma-severa/severa-design-tokens';
+import {lightTokens} from '@tan3li/d-tokens';
 import {Size} from '../../../constants/index.js';
 
 const meta = {

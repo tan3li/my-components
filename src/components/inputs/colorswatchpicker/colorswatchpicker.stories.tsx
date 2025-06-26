@@ -1,7 +1,7 @@
 import {Meta, StoryObj} from '@storybook/react-webpack5';
 import {ColorSwatchPicker} from './colorswatchpicker.js';
 import {Size} from '../../../constants/index.js';
-import {lightTokens} from '@visma-severa/severa-design-tokens';
+import {lightTokens} from '@tan3li/d-tokens';
 
 const meta = {
     component: ColorSwatchPicker,

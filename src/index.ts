@@ -1,4 +1,4 @@
-import '@visma-severa/severa-design-tokens/dist/index.css';
+import '@tan3li/d-tokens/dist/index.css';
 import 'highcharts/css/highcharts.css';
 import './styles/index.scss';
 

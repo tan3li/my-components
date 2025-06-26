@@ -2,7 +2,7 @@ import {Meta, StoryObj} from '@storybook/react-webpack5';
 import {LayoutGrid, LayoutGridColumnSpacing} from './layoutgrid.js';
 import {LayoutGridItem, LayoutGridItemPresetSize} from './layoutgriditem.js';
 import {ReactNode} from 'react';
-import {coreTokens} from '@visma-severa/severa-design-tokens';
+import {coreTokens} from '@tan3li/d-tokens';
 
 const meta = {
     component: LayoutGrid,

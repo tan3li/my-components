@@ -1,6 +1,6 @@
 import {ReactNode, RefAttributes} from 'react';
 import {classNames} from '../../../utils/classnames.js';
-import {coreTokens} from '@visma-severa/severa-design-tokens';
+import {coreTokens} from '@tan3li/d-tokens';
 import {BreakpointValues} from './breakpointvalues.js';
 import {isString} from '../../../utils/stringhelper.js';
 

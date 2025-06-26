@@ -5,7 +5,7 @@ import {ListItem, ListItemStyle} from './listitem.js';
 import {Icon, iconNames, IconSize} from '../../media/index.js';
 import {Heading, Label} from '../../text/index.js';
 import {Size} from '../../../constants/index.js';
-import {coreTokens, lightTokens} from '@visma-severa/severa-design-tokens';
+import {coreTokens, lightTokens} from '@tan3li/d-tokens';
 import {ButtonStyle, ButtonVariant, IconButton} from '../../action/index.js';
 import {LayoutGrid, LayoutGridColumnSpacing, LayoutGridItem} from '../../template/index.js';
 import {ReactNode} from 'react';

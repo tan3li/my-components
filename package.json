@@ -46,7 +46,7 @@
     "@types/lodash.sortby": "4.7.9",
     "@types/react": "19.1.8",
     "@types/react-dom": "19.1.6",
-    "@visma-severa/severa-design-tokens": "5.7.0",
+    "@tan3li/d-tokens": "5.7.0",
     "chromatic": "12.2.0",
     "country-calling-code": "0.0.3",
     "dayjs": "1.11.13",

@@ -8,7 +8,7 @@ import {Icon, iconNames, IconSize} from '../../media/index.js';
 import {Tooltip, TooltipTrigger, TooltipType} from '../../feedback/index.js';
 import {KanbanCardFooterAlertLevel} from './kanbancardfooter.js';
 import {List, ListItem, ListItemStyle} from '../list/index.js';
-import {lightTokens} from '@visma-severa/severa-design-tokens';
+import {lightTokens} from '@tan3li/d-tokens';
 import {Label} from '../../text/index.js';
 import {Divider} from '../divider/index.js';
 

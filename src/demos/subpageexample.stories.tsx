@@ -32,7 +32,7 @@ import {
     TopNav
 } from '../components/index.js';
 import {InputType, Orientation, Size} from '../constants/index.js';
-import {coreTokens} from '@visma-severa/severa-design-tokens';
+import {coreTokens} from '@tan3li/d-tokens';
 import {useMemo, useState} from 'react';
 
 const meta: Meta = {

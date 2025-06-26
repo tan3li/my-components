@@ -1,7 +1,7 @@
 import {Children, cloneElement, isValidElement, ReactElement, ReactNode, RefAttributes} from 'react';
 import {classNames} from '../../../utils/classnames.js';
 import {ListItem, ListItemProps, ListItemStyle} from './listitem.js';
-import {coreTokens} from '@visma-severa/severa-design-tokens';
+import {coreTokens} from '@tan3li/d-tokens';
 import {isFunction} from '../../../utils/functionhelper.js';
 
 export interface ListProps<TData extends object> extends RefAttributes<HTMLUListElement> {

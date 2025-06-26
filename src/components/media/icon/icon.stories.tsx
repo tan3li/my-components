@@ -1,7 +1,7 @@
 import {Meta, StoryObj} from '@storybook/react-webpack5';
 import {Icon, IconSize} from './icon.js';
 import {iconNames} from './icons.js';
-import {coreTokens} from '@visma-severa/severa-design-tokens';
+import {coreTokens} from '@tan3li/d-tokens';
 
 const meta = {
     component: Icon,
