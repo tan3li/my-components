@@ -1,0 +1,1 @@
+{"version":3,"file":"labelplacement.js","sourceRoot":"","sources":["../../src/constants/labelplacement.ts"],"names":[],"mappings":"AAAA,MAAM,CAAN,IAAkB,cAGjB;AAHD,WAAkB,cAAc;IAC5B,iCAAe,CAAA;IACf,6BAAW,CAAA;AACf,CAAC,EAHiB,cAAc,KAAd,cAAc,QAG/B","sourcesContent":["export const enum LabelPlacement {\n    Start = 'start',\n    End = 'end'\n}\n"]}

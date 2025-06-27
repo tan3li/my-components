@@ -1,0 +1,1 @@
+{"version":3,"file":"time.js","sourceRoot":"","sources":["../../src/constants/time.ts"],"names":[],"mappings":"AAAA,MAAM,CAAC,IAAM,eAAe,GAAG,EAAE,CAAC","sourcesContent":["export const MINUTES_IN_HOUR = 60;\n"]}

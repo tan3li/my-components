@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../src/tools/dataattributeaddingtool/index.ts"],"names":[],"mappings":"AAAA,sCAAsC;AACtC,eAAe,EAAE,CAAC","sourcesContent":["// make it work with --isolatedModules\nexport default {};\n"]}

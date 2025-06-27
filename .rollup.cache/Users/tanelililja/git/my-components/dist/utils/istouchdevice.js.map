@@ -1,0 +1,1 @@
+{"version":3,"file":"istouchdevice.js","sourceRoot":"","sources":["../../src/utils/istouchdevice.ts"],"names":[],"mappings":"AAAA,MAAM,CAAC,IAAM,aAAa,GAAG,OAAO,CAAC,cAAc,IAAI,MAAM,IAAI,SAAS,CAAC,cAAc,GAAG,CAAC,CAAC,CAAC","sourcesContent":["export const isTouchDevice = Boolean('ontouchstart' in window && navigator.maxTouchPoints > 0);\n"]}

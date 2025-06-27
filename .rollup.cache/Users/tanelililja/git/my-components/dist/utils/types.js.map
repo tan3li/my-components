@@ -1,0 +1,1 @@
+{"version":3,"file":"types.js","sourceRoot":"","sources":["../../src/utils/types.ts"],"names":[],"mappings":"","sourcesContent":["export type OmitIndexSignature<T> = {\n    [K in keyof T as string extends K ? never\n    : number extends K ? never\n    : K]: T[K];\n};\n\nexport type PartialWithRequired<T, K extends keyof T> = Partial<T> & Pick<T, K>;\n"]}

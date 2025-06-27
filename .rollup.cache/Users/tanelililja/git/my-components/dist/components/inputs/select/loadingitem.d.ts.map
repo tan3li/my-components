@@ -1,0 +1,1 @@
+{"version":3,"file":"loadingitem.d.ts","sourceRoot":"","sources":["../../../../src/components/inputs/select/loadingitem.tsx"],"names":[],"mappings":"AACA,OAAO,EAAC,IAAI,EAAC,MAAM,4BAA4B,CAAC;AAIhD,MAAM,WAAW,gBAAgB;IAC7B,IAAI,CAAC,EAAE,IAAI,CAAC,EAAE,GAAG,IAAI,CAAC,EAAE,GAAG,IAAI,CAAC,EAAE,CAAC;CACtC;AAED,wBAAgB,WAAW,CAAC,EAAC,IAAI,EAAC,EAAE,gBAAgB,2CAcnD"}

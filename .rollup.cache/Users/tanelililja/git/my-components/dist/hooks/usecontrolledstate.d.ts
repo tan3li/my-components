@@ -1,0 +1,2 @@
+export declare function useControlledState<T>(defaultValue: T, value?: T, onChange?: (v: T, ...args: any[]) => void): [T, (value: T, ...args: any[]) => void];
+//# sourceMappingURL=usecontrolledstate.d.ts.map

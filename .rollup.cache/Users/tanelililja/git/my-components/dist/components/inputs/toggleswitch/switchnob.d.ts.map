@@ -1,0 +1,1 @@
+{"version":3,"file":"switchnob.d.ts","sourceRoot":"","sources":["../../../../src/components/inputs/toggleswitch/switchnob.tsx"],"names":[],"mappings":"AAAA,OAAO,EAAC,IAAI,EAAC,MAAM,4BAA4B,CAAC;AAEhD,UAAU,cAAc;IACpB,SAAS,CAAC,EAAE,MAAM,CAAC;IACnB,IAAI,EAAE,IAAI,CAAC,EAAE,GAAG,IAAI,CAAC,EAAE,CAAC;CAC3B;AAKD,wBAAgB,SAAS,CAAC,EAAC,SAAS,EAAE,IAAI,EAAC,EAAE,cAAc,2CAc1D"}

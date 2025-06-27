@@ -1,0 +1,1 @@
+{"version":3,"file":"interactionsource.js","sourceRoot":"","sources":["../../src/constants/interactionsource.ts"],"names":[],"mappings":"AAAA,MAAM,CAAN,IAAkB,iBAGjB;AAHD,WAAkB,iBAAiB;IAC/B,iEAAY,CAAA;IACZ,2DAAK,CAAA;AACT,CAAC,EAHiB,iBAAiB,KAAjB,iBAAiB,QAGlC","sourcesContent":["export const enum InteractionSource {\n    Keyboard = 1,\n    Mouse\n}\n"]}

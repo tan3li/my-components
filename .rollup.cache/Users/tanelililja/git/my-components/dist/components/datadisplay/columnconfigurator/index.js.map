@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../../src/components/datadisplay/columnconfigurator/index.ts"],"names":[],"mappings":"AAAA,cAAc,yBAAyB,CAAC","sourcesContent":["export * from './columnconfigurator.js';\nexport type {ColumnConfiguratorItem} from './columnitem.js';\n"]}

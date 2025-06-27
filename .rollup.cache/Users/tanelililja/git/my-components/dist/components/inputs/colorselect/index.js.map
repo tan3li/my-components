@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../../src/components/inputs/colorselect/index.ts"],"names":[],"mappings":"AAAA,cAAc,kBAAkB,CAAC","sourcesContent":["export * from './colorselect.js';\n"]}

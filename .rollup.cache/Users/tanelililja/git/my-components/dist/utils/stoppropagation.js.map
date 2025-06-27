@@ -1,0 +1,1 @@
+{"version":3,"file":"stoppropagation.js","sourceRoot":"","sources":["../../src/utils/stoppropagation.ts"],"names":[],"mappings":"AAEA,MAAM,UAAU,eAAe,CAAC,KAAqB;IACjD,KAAK,CAAC,eAAe,EAAE,CAAC;AAC5B,CAAC","sourcesContent":["import {SyntheticEvent} from 'react';\n\nexport function stopPropagation(event: SyntheticEvent) {\n    event.stopPropagation();\n}\n"]}

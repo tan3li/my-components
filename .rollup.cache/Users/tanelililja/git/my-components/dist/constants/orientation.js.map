@@ -1,0 +1,1 @@
+{"version":3,"file":"orientation.js","sourceRoot":"","sources":["../../src/constants/orientation.ts"],"names":[],"mappings":"AAAA,MAAM,CAAN,IAAkB,WAGjB;AAHD,WAAkB,WAAW;IACzB,wCAAyB,CAAA;IACzB,oCAAqB,CAAA;AACzB,CAAC,EAHiB,WAAW,KAAX,WAAW,QAG5B","sourcesContent":["export const enum Orientation {\n    horizontal = 'horizontal',\n    vertical = 'vertical'\n}\n"]}

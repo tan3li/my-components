@@ -1,0 +1,1 @@
+{"version":3,"file":"common.js","sourceRoot":"","sources":["../../src/constants/common.ts"],"names":[],"mappings":"AAAA,MAAM,CAAC,IAAM,KAAK,GAAG,OAAO,CAAC;AAC7B,MAAM,CAAC,IAAM,IAAI,GAAG,MAAM,CAAC","sourcesContent":["export const VALUE = 'value';\nexport const TEXT = 'text';\n"]}

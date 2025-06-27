@@ -1,0 +1,1 @@
+{"version":3,"file":"breakpointvalues.js","sourceRoot":"","sources":["../../../../src/components/template/layoutgrid/breakpointvalues.ts"],"names":[],"mappings":"","sourcesContent":["export interface BreakpointValues<T> {\n    xs?: T;\n    sm?: T;\n    md?: T;\n    lg?: T;\n    xl?: T;\n    ['2xl']?: T;\n    ['3xl']?: T;\n    ['4xl']?: T;\n    ['5xl']?: T;\n}\n"]}

@@ -1,0 +1,27 @@
+import dayjs from 'dayjs';
+import 'dayjs/locale/en-ie';
+import 'dayjs/locale/en-gb';
+import 'dayjs/locale/nb';
+import 'dayjs/locale/fi';
+import 'dayjs/locale/da';
+import 'dayjs/locale/nl';
+import 'dayjs/locale/de';
+import 'dayjs/locale/sv';
+import 'dayjs/locale/et';
+import 'dayjs/locale/fr';
+import 'dayjs/locale/it';
+import 'dayjs/locale/pl';
+import 'dayjs/locale/ru';
+import 'dayjs/locale/es';
+import localeData from 'dayjs/plugin/localeData';
+import localizedFormat from 'dayjs/plugin/localizedFormat';
+import weekOfYear from 'dayjs/plugin/weekOfYear';
+import isBetween from 'dayjs/plugin/isBetween';
+import duration from 'dayjs/plugin/duration';
+dayjs.extend(localeData);
+dayjs.extend(localizedFormat);
+dayjs.extend(weekOfYear);
+dayjs.extend(isBetween);
+dayjs.extend(duration);
+export var day = dayjs;
+//# sourceMappingURL=day.js.map

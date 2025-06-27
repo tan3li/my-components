@@ -1,6 +1,7 @@
 {
   "name": "@tan3li/my-components",
-  "version": "1.0.0", 
+  "version": "1.0.0",
+  "type": "module",
   "description": "Authentic tan3li design system components",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -10,16 +11,28 @@
     "build": "rollup -c",
     "prepare": "npm run build"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
   },
-  "devDependencies": {
-    "@rollup/plugin-typescript": "^11.0.0",
-    "rollup": "^3.0.0",
-    "typescript": "^4.9.0"
-  },
   "dependencies": {
-    "@tan3li/d-tokens": "^1.0.0"
+    "tslib": "^2.6.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^24.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.0",
+    "@rollup/plugin-typescript": "^11.0.0",
+    "@rollup/plugin-url": "^8.0.0",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "rollup": "^3.0.0",
+    "rollup-plugin-dts": "^5.0.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "sass": "^1.69.0",
+    "typescript": "^4.9.0"
   }
 }

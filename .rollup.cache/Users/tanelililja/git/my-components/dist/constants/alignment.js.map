@@ -1,0 +1,1 @@
+{"version":3,"file":"alignment.js","sourceRoot":"","sources":["../../src/constants/alignment.ts"],"names":[],"mappings":"AAAA,MAAM,CAAN,IAAkB,SAIjB;AAJD,WAAkB,SAAS;IACvB,8BAAiB,CAAA;IACjB,wBAAW,CAAA;IACX,4BAAe,CAAA;AACnB,CAAC,EAJiB,SAAS,KAAT,SAAS,QAI1B","sourcesContent":["export const enum Alignment {\n    center = 'center',\n    end = 'end',\n    start = 'start'\n}\n"]}
