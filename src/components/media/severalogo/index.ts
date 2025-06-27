@@ -1,1 +1,1 @@
-export * from './severalogo.js';
+export * from './tan3lilogo.js';

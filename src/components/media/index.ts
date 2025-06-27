@@ -1,2 +1,2 @@
 export * from './icon';
-export * from './severalogo';
+export * from './tan3lilogo';

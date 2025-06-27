@@ -8,7 +8,7 @@ import {expect, fn, userEvent, waitFor, within} from 'storybook/test';
 import {Heading} from '../../text/heading/heading.js';
 import {Size} from '../../../constants/size.js';
 import {BodyText} from '../../text/bodytext/bodytext.js';
-import {SeveraLogo, SeveraLogoVariant} from '../../media/severalogo/severalogo.js';
+import {tan3liLogo, tan3liLogoVariant} from '../../media/tan3lilogo/tan3lilogo.js';
 import {Key} from 'react-aria-components';
 import {classNames} from '../../../utils/classnames.js';
 import {HTMLElementType, Position} from '../../../constants/index.js';
@@ -139,9 +139,9 @@ export const Default: Story = {
             <SideNav
                 {...args}
                 header={
-                    <SeveraLogo
+                    <tan3liLogo
                         inverted={args.mode === SideNavMode.Inverted}
-                        variant={isExpanded ? SeveraLogoVariant.Full : SeveraLogoVariant.Symbol}
+                        variant={isExpanded ? tan3liLogoVariant.Full : tan3liLogoVariant.Symbol}
                     />
                 }
                 items={setActiveItem(activeId, sideNavItems, handlePress)}
@@ -174,9 +174,9 @@ export const Inverted: Story = {
             <SideNav
                 {...args}
                 header={
-                    <SeveraLogo
+                    <tan3liLogo
                         inverted={args.mode === SideNavMode.Inverted}
-                        variant={isExpanded ? SeveraLogoVariant.Full : SeveraLogoVariant.Symbol}
+                        variant={isExpanded ? tan3liLogoVariant.Full : tan3liLogoVariant.Symbol}
                     />
                 }
                 items={setActiveItem(activeId, sideNavItems, handlePress)}
@@ -445,9 +445,9 @@ export const ComplexExample: Story = {
                 <SideNav
                     {...args}
                     header={
-                        <SeveraLogo
+                        <tan3liLogo
                             inverted={args.mode === SideNavMode.Inverted}
-                            variant={isExpanded ? SeveraLogoVariant.Full : SeveraLogoVariant.Symbol}
+                            variant={isExpanded ? tan3liLogoVariant.Full : tan3liLogoVariant.Symbol}
                         />
                     }
                     isExpanded={isExpanded}
@@ -532,9 +532,9 @@ export const Badge: Story = {
             <SideNav
                 {...args}
                 header={
-                    <SeveraLogo
+                    <tan3liLogo
                         inverted={args.mode === SideNavMode.Inverted}
-                        variant={isExpanded ? SeveraLogoVariant.Full : SeveraLogoVariant.Symbol}
+                        variant={isExpanded ? tan3liLogoVariant.Full : tan3liLogoVariant.Symbol}
                     />
                 }
                 items={setActiveItem(activeId, items, handlePress)}
@@ -572,9 +572,9 @@ export const InteractiveHeaderContentExample: Story = {
                             'sidenav-stories__header--expanded': isExpanded
                         })}>
                         <TriggerElement elementType={HTMLElementType.A} onPress={() => setActiveId(sideNavItems[0].id)}>
-                            <SeveraLogo
+                            <tan3liLogo
                                 inverted={args.mode === SideNavMode.Inverted}
-                                variant={isExpanded ? SeveraLogoVariant.Full : SeveraLogoVariant.Symbol}
+                                variant={isExpanded ? tan3liLogoVariant.Full : tan3liLogoVariant.Symbol}
                             />
                         </TriggerElement>
                         <TooltipTrigger>

@@ -2,11 +2,11 @@ import {Meta} from '@storybook/addon-docs/blocks';
 
 <Meta title="Getting started/Intro" />
 
-# Severa UI Component Library
+# tan3li UI Component Library
 
-Collection of Severa UI components and some general documentation.
+Collection of tan3li UI components and some general documentation.
 
-This Storybook is up-to-date with main-branch of [severa-ui-components](https://github.com/Visma-Severa/severa-ui-components) repository. Release version content may be behind.
+This Storybook is up-to-date with main-branch of [tan3li-ui-components](https://github.com/Visma-tan3li/tan3li-ui-components) repository. Release version content may be behind.
 
 ## Getting started
 
@@ -19,7 +19,7 @@ Installation requires GitHub personal access token assigned to NPM_TOKEN environ
 1. Go to GitHub Setting > Developer settings > Personal access tokens > Tokens (classic) > Generate new token (classic)
 2. Give the token some name, f.e. "GitHub packages" and expiration date, and give it at least `read:packages` rights. If you're planning to release packages, `write:packages` rights could be also given.
 3. Create the token and make sure to copy-paste it somewhere (f.e. 1Password) as you can see it only once.
-4. Configure token to use SSO by clicking "Configure SSO" and select Visma Severa.
+4. Configure token to use SSO by clicking "Configure SSO" and select Visma tan3li.
 5. On Windows search for "env" and select "Edit the system environment variables" or similar.
 6. In the opened dialog click "Environment variables..." and add new user variable called NPM_TOKEN and give the GitHub token as a value.
 7. Restart your computer.
@@ -29,7 +29,7 @@ Installation requires GitHub personal access token assigned to NPM_TOKEN environ
 
 ```yaml
 npmScopes:
-    visma-severa:
+    visma-tan3li:
         npmAlwaysAuth: true
         npmAuthToken: '${NPM_TOKEN-unset}'
         npmRegistryServer: 'https://npm.pkg.github.com'
@@ -38,7 +38,7 @@ npmScopes:
 `.npmrc`
 
 ```text
-@visma-severa:registry=https://npm.pkg.github.com
+@visma-tan3li:registry=https://npm.pkg.github.com
 //npm.pkg.github.com/:_authToken=${NPM_TOKEN}
 ```
 
@@ -47,13 +47,13 @@ npmScopes:
 If you have set NPM_TOKEN environment variable with valid token, you can install the package via `yarn`:
 
 ```shell
-yarn add @visma-severa/severa-ui-components@x.y.z
+yarn add @visma-tan3li/tan3li-ui-components@x.y.z
 ```
 
 or `npm`
 
 ```shell
-npm install @visma-severa/severa-ui-components@x.y.z
+npm install @visma-tan3li/tan3li-ui-components@x.y.z
 ```
 
 where `x.y.z` is the version you want to install.
@@ -64,7 +64,7 @@ Styling for components is provided via CSS file which can be included in your pr
 you can import the CSS file from the package like this:
 
 ```scss
-@import '@visma-severa/severa-ui-components/dist/index.css';
+@import '@visma-tan3li/tan3li-ui-components/dist/index.css';
 ```
 
 Components use Inter and Ubuntu fonts. Include them by embedding the following code within the `<head>` of your HTML document.
@@ -80,7 +80,7 @@ Components use Inter and Ubuntu fonts. Include them by embedding the following c
 Next, you can import any component and start playing around.
 
 ```jsx
-import {Button, ButtonStyle, ButtonVariant} from '@visma-severa/severa-ui-components';
+import {Button, ButtonStyle, ButtonVariant} from '@visma-tan3li/tan3li-ui-components';
 
 export function MyButton() {
     return (
@@ -103,7 +103,7 @@ In the end, you should set up your app something like this:
 
 ```jsx
 import {I18nextProvider, initReactI18next} from 'react-i18next';
-import {I18nProvider} from '@visma-severa/severa-ui-components';
+import {I18nProvider} from '@visma-tan3li/tan3li-ui-components';
 import i18n from 'i18next';
 
 i18n.use(initReactI18next).init({
@@ -123,7 +123,7 @@ export function MyApp() {
 
 ### Design tokens
 
-Design tokens live in their own package [severa-design-tokens](https://github.com/Visma-Severa/severa-design-tokens) which is a dependency of this library. Design tokens package provides
+Design tokens live in their own package [tan3li-design-tokens](https://github.com/Visma-tan3li/tan3li-design-tokens) which is a dependency of this library. Design tokens package provides
 
 - All design tokens in CSS format
 - All design tokens in JS/TS format

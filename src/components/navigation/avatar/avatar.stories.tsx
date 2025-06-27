@@ -159,7 +159,7 @@ export const Description: Story = {
 export const LabelMaxWidth: Story = {
     args: {
         alt: 'John Smith',
-        description: 'Software Engineer ⋅ Visma Solutions ⋅ Sera Design System at Severa',
+        description: 'Software Engineer ⋅ Visma Solutions ⋅ Sera Design System at tan3li',
         label: 'John Smith',
         labelMaxWidth: 120,
         size: Size.lg,

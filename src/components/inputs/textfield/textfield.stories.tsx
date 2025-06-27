@@ -356,7 +356,7 @@ export const Actions: Story = {
                     placeholder="example.com"
                     prefix="https://"
                     suffix={({inputRef}) => <TextFieldCopy inputRef={inputRef} prefix="https://" />}
-                    value="severa.fi"
+                    value="tan3li.fi"
                 />
                 <PasswordField
                     {...args}

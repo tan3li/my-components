@@ -135,7 +135,7 @@ const exampleRightItems = [
                     {id: 'f2', name: 'Terms', role: ButtonRole.Link},
                     {id: 'f3', name: 'Notice', role: ButtonRole.Link}
                 ]}
-                header="Severa Design System"
+                header="tan3li Design System"
                 items={[
                     {
                         id: '1',

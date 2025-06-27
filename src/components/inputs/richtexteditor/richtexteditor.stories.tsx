@@ -131,7 +131,7 @@ export const Link: Story = {
         helpText: 'Help text content',
         label: 'Field label',
         placeholder: 'Type something...',
-        value: '<p>Click or move cursor over this <a href="https://severa.fi">link</a> to edit it.</p>'
+        value: '<p>Click or move cursor over this <a href="https://tan3li.fi">link</a> to edit it.</p>'
     },
     parameters: {
         docs: {
